@@ -5,6 +5,8 @@ namespace TankShooter.Control
     public class CameraSwitch : MonoBehaviour
     {
         [SerializeField] Camera flyCamera;
+        [SerializeField] Canvas mainCanvas;
+
         Camera[] cameras;
         bool flyCamActive = false;
 
@@ -18,6 +20,7 @@ namespace TankShooter.Control
             if (Input.GetMouseButtonDown(1))
             {
                 flyCamActive = !flyCamActive;
+                mainCanvas.gameObject.SetActive(!flyCamActive);
 
                 foreach (Camera camera in cameras)
                 {
