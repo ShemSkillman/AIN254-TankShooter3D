@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TankShooter.Control
+namespace TankShooter.Core
 {
     public class Follow : MonoBehaviour
     {
