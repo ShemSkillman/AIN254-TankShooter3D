@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 647875334035105692}
   - component: {fileID: 9034332542188584680}
   - component: {fileID: 2506092614913696951}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tank Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4212136457007966258}
   - component: {fileID: 7954056267751289978}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7218491594858469813}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gun end
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 8421484032066190756}
   - component: {fileID: 4165921113878726712}
   - component: {fileID: 6314437575641310216}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tank gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 129315007230438210}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tank turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 8572367097207962401}
   - component: {fileID: 8596020868377239750}
   - component: {fileID: 7679581396706623063}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}

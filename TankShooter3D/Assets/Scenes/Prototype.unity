@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7087887}
   - component: {fileID: 7087889}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Driver Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 117393440}
   - component: {fileID: 117393441}
   - component: {fileID: 117393442}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 469567105}
   - component: {fileID: 469567107}
   - component: {fileID: 469567106}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fly Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 815168944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gun end
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -788,7 +788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 861387728}
   - component: {fileID: 861387727}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tank turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1734,7 +1734,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1898573136}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gun start
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -1934,7 +1934,7 @@ GameObject:
   - component: {fileID: 5521635125592991780}
   - component: {fileID: 545758212725979081}
   - component: {fileID: 3274734537261447601}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tank Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1993,7 +1993,7 @@ GameObject:
   - component: {fileID: 7788155876361057200}
   - component: {fileID: 3927825115302329340}
   - component: {fileID: 3927825115302329341}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Tank gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2123,7 +2123,7 @@ GameObject:
   - component: {fileID: 5519376651050704259}
   - component: {fileID: 5519376651050704258}
   - component: {fileID: 5519376651050704261}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gunner Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2169,7 +2169,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 7479
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2396,7 +2396,7 @@ GameObject:
   - component: {fileID: 1200735576960321546}
   - component: {fileID: 8104237371183497251}
   - component: {fileID: 7989176877959258610}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}

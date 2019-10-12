@@ -9,9 +9,9 @@ namespace TankShooter.Control
 
         private void Update()
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, gunnerCam.transform.rotation,
-                Time.deltaTime * turretRotationSpeed);
-
+            Quaternion cameraRot = Quaternion.Euler(0, gunnerCam.transform.eulerAngles.y, 0);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, cameraRot,
+                Time.deltaTime * turretRotationSpeed);                
         }
     }
 }
