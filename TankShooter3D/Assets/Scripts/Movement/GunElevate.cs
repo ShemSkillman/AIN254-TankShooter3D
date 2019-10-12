@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 
-namespace TankShooter.Control
+namespace TankShooter.Movement
 {
     public class GunElevate : MonoBehaviour
     {
-        [SerializeField] Camera gunnerCamera;
         [SerializeField] Transform gunStart;
         [SerializeField] float gunElevateSpeed = 10f;
 
-        private void Update()
+        public void ElevateGun(float elevationDegrees)
         {
-            float delta = Mathf.MoveTowardsAngle(transform.eulerAngles.x, gunnerCamera.transform.eulerAngles.x, 
+            float delta = Mathf.MoveTowardsAngle(transform.eulerAngles.x, elevationDegrees,
                 Time.deltaTime * gunElevateSpeed) - transform.eulerAngles.x;
 
             transform.RotateAround(gunStart.position, transform.right, delta);

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TankShooter.Core
+namespace TankShooter.Combat
 {
     public class Health : MonoBehaviour
     {

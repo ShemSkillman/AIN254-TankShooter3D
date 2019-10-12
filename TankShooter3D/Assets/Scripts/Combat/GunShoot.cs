@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TankShooter.Combat
 {
-    public class Shoot : MonoBehaviour
+    public class GunShoot : MonoBehaviour
     {
         [SerializeField] Projectile projectilePrefab;
         [SerializeField] float shootForce = 1000f;
@@ -12,16 +12,10 @@ namespace TankShooter.Combat
 
         bool isReloaded = true;
 
-        private void Update()
+        public void ShootGun()
         {
-            if (Input.GetButton("Fire1") && isReloaded)
-            {
-                Fire();
-            }
-        }
+            if (!isReloaded) return;
 
-        public void Fire()
-        {
             isReloaded = false;
 
             Projectile projectile = Instantiate(projectilePrefab, gunEnd.transform.position, transform.rotation);
