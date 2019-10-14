@@ -29,5 +29,27 @@ namespace TankShooter.Movement
             TurnTank(Mathf.Sign(dot));
             return true;
         }
+
+        public bool MoveTankTowards(Vector3 point, float tolerance)
+        {
+            Vector3 difference = point - transform.position;
+
+            if (AtPoint(point, tolerance)) return false;
+
+            MoveTank(Mathf.Sign(difference.magnitude));
+            return true;
+        }
+
+        private bool AtPoint(Vector3 point, float tolerance)
+        {
+            Vector2 tankPos = new Vector3(transform.position.x, transform.position.z);
+            Vector2 waypointPos = new Vector3(point.x, point.z);
+
+            float distance = Vector2.Distance(tankPos, waypointPos);
+
+            if (distance < tolerance) return true;
+
+            return false;
+        }
     }
 }

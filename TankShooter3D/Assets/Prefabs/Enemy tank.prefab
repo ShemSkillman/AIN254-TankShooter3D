@@ -216,7 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e2fbfb7960b83e4dab01a8bbcfc31f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {fileID: 0}
+  sightRange: 10
+  pathRefreshRate: 0.25
+  maxWanderRange: 5
+  maxWaitTime: 10
+  waypointTolerance: 1
+  turnTolerance: 0.01
 --- !u!114 &4922027085659268841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb86b114aab85e478afe280aabed386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 5
   rotationSpeed: 5
 --- !u!1 &3965647664456714779
 GameObject:

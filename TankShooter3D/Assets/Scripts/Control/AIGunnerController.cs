@@ -28,7 +28,7 @@ namespace TankShooter.Control
         private void Update()
         {
             ControlTurret();
-            Shoot();
+            ControlGun();
         }
 
         private void ControlTurret()
@@ -44,7 +44,7 @@ namespace TankShooter.Control
             turretRotate.RotateTurret(angle * Mathf.Rad2Deg);
         }
 
-        private void Shoot()
+        private void ControlGun()
         {
             bool hit = Physics.Raycast(gunEnd.position, gunEnd.forward, out RaycastHit ray, range);
 
