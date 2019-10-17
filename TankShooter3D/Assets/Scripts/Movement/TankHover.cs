@@ -1,33 +1,51 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace TankShooter.Control
 {
     public class TankHover : MonoBehaviour
     {
         [SerializeField] float maxHoverForce = 1500f;
-        [Range(0f, 1f)]
-        [SerializeField] float reduceHoverMult = 0.9f;
         [SerializeField] float targetHeight = 2f;
 
         Rigidbody rb;
+        float height = 0f;
+        Vector3[] thrustersPos;
 
         private void Start()
         {
-            rb = GetComponent<Rigidbody>();
+            rb = GetComponentInParent<Rigidbody>();
+            GetThrusters();
+
+            StartCoroutine(CalculateHeight());
+        }
+
+        private void GetThrusters()
+        {
+            Transform[] children = GetComponentsInChildren<Transform>();
+            thrustersPos = new Vector3[children.Length];
+
+            for (int i = 0; i < children.Length; i++)
+            {
+                thrustersPos[i] = children[i].position;
+            }
         }
 
         private void FixedUpdate()
         {
-            float height = transform.position.y;
-            float hoverForce = maxHoverForce;
-            
-            if (height > targetHeight)
+            rb.AddForce(Vector3.up * maxHoverForce * (targetHeight / height));
+        }
+
+        IEnumerator CalculateHeight()
+        {
+            int layerMask = 1 << 13;
+            while (true)
             {
-                hoverForce *= reduceHoverMult;
+                Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, Mathf.Infinity, layerMask);
+                height = hit.distance;
+
+                yield return new WaitForSeconds(0.1f);
             }
-
-            rb.AddForce(Vector3.up * hoverForce);
-
         }
     }
 }

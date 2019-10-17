@@ -7,13 +7,9 @@ namespace TankShooter.Control
         [SerializeField] Camera flyCamera;
         [SerializeField] Canvas mainCanvas;
 
-        Camera[] cameras;
+        [SerializeField] Camera[] otherCameras;
         bool flyCamActive = false;
 
-        private void Start()
-        {
-            cameras = Camera.allCameras;
-        }
 
         private void Update()
         {
@@ -22,7 +18,7 @@ namespace TankShooter.Control
                 flyCamActive = !flyCamActive;
                 mainCanvas.gameObject.SetActive(!flyCamActive);
 
-                foreach (Camera camera in cameras)
+                foreach (Camera camera in otherCameras)
                 {
                     camera.gameObject.SetActive(!flyCamActive);
                 }

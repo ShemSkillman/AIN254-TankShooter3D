@@ -5,6 +5,7 @@ namespace TankShooter.Combat
     public class Health : MonoBehaviour
     {
         [SerializeField] int health = 100;
+        [SerializeField] Canvas playerUI;
 
         public void TakeDamage(int damage)
         {
