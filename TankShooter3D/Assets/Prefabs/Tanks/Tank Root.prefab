@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 2741079377713329058}
   - component: {fileID: 6686254720732741818}
   - component: {fileID: 8710546059169332669}
+  - component: {fileID: 4418971178190848825}
   m_Layer: 0
   m_Name: Tank Root
   m_TagString: Untagged
@@ -229,8 +230,8 @@ Rigidbody:
   m_GameObject: {fileID: 2377742841250414800}
   serializedVersion: 2
   m_Mass: 1000
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 2
+  m_AngularDrag: 4
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -248,8 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb86b114aab85e478afe280aabed386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  rotationSpeed: 40
+  moveForce: 10000
+  rotationSpeed: 20000
 --- !u!114 &6686254720732741818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +277,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.0000005, y: 1.8000002, z: 6.4}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4418971178190848825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2377742841250414800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a81ff4b69ee626408516d3f6b2fce60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHoverForce: 10000
+  reduceHoverMult: 0.9
+  targetHeight: 2
 --- !u!1 &5417776934544369219
 GameObject:
   m_ObjectHideFlags: 0

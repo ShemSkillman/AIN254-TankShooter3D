@@ -41,9 +41,12 @@ namespace TankShooter.Control
                 if (traversePath != null) continue;
 
                 NavMeshPath newPath = new NavMeshPath();
-                NavMesh.CalculatePath(transform.position, GetDestination(), NavMesh.AllAreas, newPath);
+                Vector3 pos = new Vector3(transform.position.x, 0, transform.position.z);
+                NavMesh.CalculatePath(pos, GetDestination(), NavMesh.AllAreas, newPath);
 
-                currentWaypoints = newPath.corners;
+                if (newPath.status == NavMeshPathStatus.PathInvalid) continue;
+
+                currentWaypoints = newPath.corners;                
                 traversePath = StartCoroutine(TraversePath());              
             }
         }
@@ -95,22 +98,23 @@ namespace TankShooter.Control
             {
                 location = (UnityEngine.Random.insideUnitSphere * maxWanderRange) + transform.position;
             }
+            
 
             NavMesh.SamplePosition(location, out NavMeshHit hit, Mathf.Infinity, NavMesh.AllAreas);
             return hit.position;
         }
 
-        private bool IsDifferentPath(Vector3[] newWaypoints)
-        {
-            if (currentWaypoints == null || currentWaypoints.Length != newWaypoints.Length) return true;
+        //private bool IsDifferentPath(Vector3[] newWaypoints)
+        //{
+        //    if (currentWaypoints == null || currentWaypoints.Length != newWaypoints.Length) return true;
 
-            for (int i = 0; i < newWaypoints.Length; i++)
-            {
-                if (newWaypoints[i] != currentWaypoints[i]) return true;
-            }
+        //    for (int i = 0; i < newWaypoints.Length; i++)
+        //    {
+        //        if (newWaypoints[i] != currentWaypoints[i]) return true;
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
         
         // Returns true when tank is not facing the target point
         public bool TurnTankTowards(Vector3 point)

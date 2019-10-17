@@ -4,17 +4,24 @@ namespace TankShooter.Movement
 {
     public class TankMove : MonoBehaviour
     {
-        [SerializeField] float moveSpeed = 10f;
-        [SerializeField] float rotationSpeed = 5f;
+        [SerializeField] float moveForce = 1000f;
+        [SerializeField] float rotationSpeed = 1000f;
+
+        Rigidbody rb;
+
+        private void Start()
+        {
+            rb = GetComponent<Rigidbody>();
+        }
 
         public void MoveTank(float direction)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * direction * moveSpeed, Space.Self);
+            rb.AddForce(transform.forward * direction * moveForce);
         }
 
         public void TurnTank(float direction)
         {
-            transform.Rotate(Vector3.up * Time.deltaTime * direction * rotationSpeed);
+            rb.AddTorque(Vector3.up * direction * rotationSpeed);
         }
 
         // Returns true when tank is not facing the target point
