@@ -184,8 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a81ff4b69ee626408516d3f6b2fce60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHoverForce: 10000
-  reduceHoverMult: 0.9
+  maxHoverForce: 15
   targetHeight: 2
 --- !u!1 &2058229673384255874
 GameObject:
@@ -197,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5231963640800833195}
   m_Layer: 0
-  m_Name: Thruster (2)
+  m_Name: Thruster 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,7 +314,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!114 &2741079377713329058
 MonoBehaviour:
@@ -329,8 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb86b114aab85e478afe280aabed386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 10000
-  rotationSpeed: 20000
+  moveForce: 10
+  rotationSpeed: 20
 --- !u!114 &6686254720732741818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1ff52591a4d744d907082b1cd7806f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  hitpoints: 100
 --- !u!65 &8710546059169332669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -367,7 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3637421228402087605}
   m_Layer: 0
-  m_Name: Thruster (3)
+  m_Name: Thruster 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8131484647547151079}
   m_Layer: 0
-  m_Name: Thruster
+  m_Name: Thruster 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -583,7 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2716169590222702605}
   m_Layer: 0
-  m_Name: Thruster (1)
+  m_Name: Thruster 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

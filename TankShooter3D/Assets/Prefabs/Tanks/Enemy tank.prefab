@@ -41,16 +41,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2377742841250414800, guid: 40969542e5d7e594797adc2da1926d91,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 2377742841250414800, guid: 40969542e5d7e594797adc2da1926d91,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 6911289165391941665, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -106,16 +96,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 929762239302499939, guid: 40969542e5d7e594797adc2da1926d91,
+    - target: {fileID: 2377742841250414800, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377742841250414800, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377742841250414800, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7001152804586811775, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c4804d7892bf90e4e8d694b2257c85ff, type: 2}
+    - target: {fileID: 929762239302499939, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 929762239302499939, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3569595317560055320, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -126,7 +136,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 5417776934544369219, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499261706950846179, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c4804d7892bf90e4e8d694b2257c85ff, type: 2}
     - target: {fileID: 105581939224905321, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758708232028142160, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
       propertyPath: m_Layer
       value: 11
@@ -142,15 +167,45 @@ PrefabInstance:
       propertyPath: reloadTime
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4499261706950846179, guid: 40969542e5d7e594797adc2da1926d91,
+    - target: {fileID: 7841461299738938851, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: m_Name
+      value: Thruster 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7841461299738938851, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 2100000, guid: c4804d7892bf90e4e8d694b2257c85ff, type: 2}
-    - target: {fileID: 7758708232028142160, guid: 40969542e5d7e594797adc2da1926d91,
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121226012113460022, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
-      propertyPath: m_Layer
-      value: 11
+      propertyPath: m_Name
+      value: Thruster 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121226012113460022, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058229673384255874, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_Name
+      value: Thruster 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058229673384255874, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691730827652016030, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_Name
+      value: Thruster 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691730827652016030, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40969542e5d7e594797adc2da1926d91, type: 3}

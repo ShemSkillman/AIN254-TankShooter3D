@@ -1,18 +1,29 @@
 ﻿using UnityEngine;
+using TankShooter.Core;
 
 namespace TankShooter.Combat
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] int health = 100;
-        [SerializeField] Canvas playerUI;
+        public int Hitpoints { get { return hitpoints; }  }
+        [SerializeField] int hitpoints = 100;
+
+        public delegate void OnHitpointsChange(int health);
+        public event OnHitpointsChange onHitpointsChange;
+
+        private void Start()
+        {
+            onHitpointsChange?.Invoke(hitpoints);
+        }
 
         public void TakeDamage(int damage)
         {
-            health -= damage;
+            hitpoints -= damage;
+            onHitpointsChange?.Invoke(hitpoints);
 
-            if (health < 1)
+            if (hitpoints < 1)
             {
+                if (tag == "Enemy") FindObjectOfType<Score>().EnemyDestroyed();
                 Destroy(gameObject);
             }
         }

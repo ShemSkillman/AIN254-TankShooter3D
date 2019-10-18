@@ -13,7 +13,7 @@ namespace TankShooter.UI
 
         private void Update()
         {
-            if (radarTank == null || radarTurret == null || turret == null || tank == null) return;
+            if (tank == null) return;
 
             radarTank.rotation = new Quaternion(radarTank.rotation.x, radarTank.rotation.y, -tank.rotation.y, tank.rotation.w);
             radarTurret.rotation = new Quaternion(radarTurret.rotation.x, radarTurret.rotation.y, -turret.rotation.y, turret.rotation.w);            

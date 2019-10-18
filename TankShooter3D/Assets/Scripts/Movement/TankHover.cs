@@ -5,46 +5,31 @@ namespace TankShooter.Control
 {
     public class TankHover : MonoBehaviour
     {
-        [SerializeField] float maxHoverForce = 1500f;
+        [SerializeField] float maxHoverForce = 15f;
         [SerializeField] float targetHeight = 2f;
 
         Rigidbody rb;
-        float height = 0f;
-        Vector3[] thrustersPos;
+
+        Transform[] thrusters;
+        LayerMask terrainLayer;
 
         private void Start()
         {
             rb = GetComponentInParent<Rigidbody>();
-            GetThrusters();
+            thrusters = GetComponentsInChildren<Transform>();
 
-            StartCoroutine(CalculateHeight());
-        }
-
-        private void GetThrusters()
-        {
-            Transform[] children = GetComponentsInChildren<Transform>();
-            thrustersPos = new Vector3[children.Length];
-
-            for (int i = 0; i < children.Length; i++)
-            {
-                thrustersPos[i] = children[i].position;
-            }
+            terrainLayer = LayerMask.GetMask("Terrain");
         }
 
         private void FixedUpdate()
         {
-            rb.AddForce(Vector3.up * maxHoverForce * (targetHeight / height));
-        }
-
-        IEnumerator CalculateHeight()
-        {
-            int layerMask = 1 << 13;
-            while (true)
+            for (int i = 0; i < thrusters.Length; i++)
             {
-                Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, Mathf.Infinity, layerMask);
-                height = hit.distance;
+                Physics.Raycast(thrusters[i].position, Vector3.down, out RaycastHit hit, targetHeight, terrainLayer);
 
-                yield return new WaitForSeconds(0.1f);
+                if (hit.collider == null) continue;
+
+                rb.AddForceAtPosition(Vector3.up * maxHoverForce * rb.mass * (1f - (hit.distance / targetHeight)), thrusters[i].position);
             }
         }
     }

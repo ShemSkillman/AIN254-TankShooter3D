@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5463391785820188590}
   m_Layer: 9
   m_Name: Fly Camera
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5513745820116952176}
   m_Layer: 9
   m_Name: Driver Camera
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 8827616392921572358}
   m_Layer: 9
   m_Name: Gunner Camera
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -378,7 +378,7 @@ PrefabInstance:
     - target: {fileID: 929762239302499939, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3569595317560055320, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
@@ -393,7 +393,7 @@ PrefabInstance:
     - target: {fileID: 5417776934544369219, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4499261706950846179, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
@@ -466,10 +466,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -3
       objectReference: {fileID: 0}
-    - target: {fileID: 75136716542113666, guid: 40969542e5d7e594797adc2da1926d91,
+    - target: {fileID: 1726080660428895414, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
-      propertyPath: maxHoverForce
-      value: 10000
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40969542e5d7e594797adc2da1926d91, type: 3}
