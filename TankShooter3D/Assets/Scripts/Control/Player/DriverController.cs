@@ -12,7 +12,7 @@ public class DriverController : MonoBehaviour
 
     private void Awake()
     {
-        tankMove = GetComponent<TankMove>();
+        tankMove = GetComponentInChildren<TankMove>();
 
         gamepadControl = new DriverControls();
 

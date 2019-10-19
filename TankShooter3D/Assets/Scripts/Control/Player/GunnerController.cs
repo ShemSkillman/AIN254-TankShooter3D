@@ -16,7 +16,7 @@ namespace TankShooter.Control
         [Header("Camera zoom properties")]
         [SerializeField] float zoomSensitivity = 5;
         [SerializeField] float minFov = 10;
-        [SerializeField] float maxFov = 120;
+        [SerializeField] float maxFov = 120;        
 
         GunElevate gunElevate;
         TurretRotate turretRotate;
@@ -24,17 +24,23 @@ namespace TankShooter.Control
         Transform camTransform;
 
         float currentElevation = 0f;
+        int layerMask;
 
         private void Start()
         {
             gunElevate = GetComponentInChildren<GunElevate>();
             turretRotate = GetComponentInChildren<TurretRotate>();
             gunShoot = GetComponentInChildren<GunShoot>();
+
             camTransform = gunnerCamera.transform;
+
+            layerMask = 1 << 9;
+            layerMask = ~layerMask;
+
         }
 
         private void Update()
-        {
+        {            
             HorizontalCameraRotation();
             VerticalCameraRotation();
             CameraZoom();
@@ -45,7 +51,7 @@ namespace TankShooter.Control
         {
             camTransform.Rotate(Vector3.up * Time.deltaTime * lookSensitivity * Input.GetAxis("Mouse X"), Space.World);
 
-            turretRotate.RotateTurret(camTransform.eulerAngles.y);
+            turretRotate.RotateTurretTowards(GetCameraAimLocation());
         }
 
         private void VerticalCameraRotation()
@@ -54,7 +60,7 @@ namespace TankShooter.Control
                             minElevation, maxElevation);
             camTransform.eulerAngles = new Vector3(currentElevation, camTransform.eulerAngles.y, camTransform.eulerAngles.z);
 
-            gunElevate.ElevateGun(currentElevation);
+            gunElevate.RotateGunTowards(GetCameraAimLocation());
         }
 
         private void CameraZoom()
@@ -67,6 +73,21 @@ namespace TankShooter.Control
         {
             if (Input.GetButton("Fire1"))
                 gunShoot.ShootGun();
+        }
+
+        private Vector3 GetCameraAimLocation()
+        {
+            Vector3 rayOrigin = gunnerCamera.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
+
+            if (Physics.Raycast(rayOrigin, gunnerCamera.transform.forward, out RaycastHit hit, 1000f, layerMask))
+            {
+                print(hit.collider.name);
+                return hit.point;
+            }
+            else
+            {
+                return (rayOrigin + (gunnerCamera.transform.forward * 1000f));
+            }
         }
     }
 }

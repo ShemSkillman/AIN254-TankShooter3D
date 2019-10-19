@@ -35,13 +35,7 @@ namespace TankShooter.Control
         {
             if (playerTank == null) return;
 
-            Vector3 difference = playerTank.position - turret.position;
-
-            // Atan2 is passed (x, z) so that the turret is rotated 0 degrees when pointing straight 
-            //forward in the z axis
-            float angle = Mathf.Atan2(difference.x, difference.z);
-
-            turretRotate.RotateTurret(angle * Mathf.Rad2Deg);
+            turretRotate.RotateTurretTowards(playerTank.position);
         }
 
         private void ControlGun()
