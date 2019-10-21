@@ -8,8 +8,6 @@ namespace TankShooter.Control
 {
     public class AIDriverController : MonoBehaviour
     {
-        [SerializeField] float sightRange = 10f;
-
         [Header("Pathfinding")]
         [SerializeField] float pathRefreshRate = 0.25f;
         [SerializeField] float maxWanderRange = 5f;
@@ -17,10 +15,11 @@ namespace TankShooter.Control
 
         [Header("Tolerances")]
         [SerializeField] float waypointTolerance = 1f;
-        [SerializeField] float turnTolerance = 0.01f;
-
+        [SerializeField] float turnTolerance = 0.1f;
+        
+        Transform followTarget;        
+        bool isStationary = false;
         TankMove tankMove;
-        Transform target;
         Vector3[] currentWaypoints;
         Coroutine traversePath;
 
@@ -36,9 +35,8 @@ namespace TankShooter.Control
             while(true)
             {
                 yield return new WaitForSeconds(pathRefreshRate);
-                ScanForPlayer();
-
-                if (traversePath != null) continue;
+                
+                if (traversePath != null || isStationary) continue;
 
                 NavMeshPath newPath = new NavMeshPath();
                 Vector3 pos = new Vector3(transform.position.x, 0, transform.position.z);
@@ -49,17 +47,7 @@ namespace TankShooter.Control
                 currentWaypoints = newPath.corners;                
                 traversePath = StartCoroutine(TraversePath());              
             }
-        }
-
-        private void ScanForPlayer()
-        {
-            int layerMask = 1 << 9;
-
-            Collider[] targets = Physics.OverlapSphere(transform.position, sightRange, layerMask);
-            if (targets.Length == 0) return;
-
-            target = targets[0].transform;
-        }
+        }        
 
         IEnumerator TraversePath()
         {
@@ -69,75 +57,44 @@ namespace TankShooter.Control
             {
                 Vector3 currentWaypoint = currentWaypoints[waypointIndex];
 
-                bool isTurning = TurnTankTowards(currentWaypoint);
+                bool isTurning = tankMove.TurnTankTowards(currentWaypoint, turnTolerance);
 
                 if (!isTurning)
                 {
-                    bool isMoving = MoveTankTowards(currentWaypoint);
+                    bool isMoving = tankMove.MoveTankTowards(currentWaypoint, waypointTolerance);
                     if (!isMoving) waypointIndex++;
                 }
 
                 yield return null;
             }
-
-            float waitTime = UnityEngine.Random.Range(0, maxWaitTime);
-            yield return new WaitForSeconds(waitTime);
+            
+            yield return new WaitForSeconds(GetWaitTime());
 
             traversePath = null;
+        }
+
+        private float GetWaitTime()
+        {
+            if (followTarget != null) return 0f;
+
+            return UnityEngine.Random.Range(0, maxWaitTime);
         }
 
         private Vector3 GetDestination()
         {
             Vector3 location;
 
-            if (target != null)
+            if (followTarget != null)
             {
-                location = target.position;
+                location = followTarget.position;
             }
             else
             {
                 location = (UnityEngine.Random.insideUnitSphere * maxWanderRange) + transform.position;
-            }
-            
+            }            
 
             NavMesh.SamplePosition(location, out NavMeshHit hit, Mathf.Infinity, NavMesh.AllAreas);
             return hit.position;
-        }
-
-        //private bool IsDifferentPath(Vector3[] newWaypoints)
-        //{
-        //    if (currentWaypoints == null || currentWaypoints.Length != newWaypoints.Length) return true;
-
-        //    for (int i = 0; i < newWaypoints.Length; i++)
-        //    {
-        //        if (newWaypoints[i] != currentWaypoints[i]) return true;
-        //    }
-
-        //    return false;
-        //}
-        
-        // Returns true when tank is not facing the target point
-        public bool TurnTankTowards(Vector3 point)
-        {
-            Vector3 difference = point - transform.position;
-
-            float dot = Vector3.Dot(transform.right, difference.normalized);
-
-            if (Mathf.Abs(dot) < turnTolerance) return false;
-
-            tankMove.TurnTank(Mathf.Sign(dot));
-            return true;
-        }
-
-        // Returns true when tank is not at the waypoint
-        public bool MoveTankTowards(Vector3 waypoint)
-        {
-            Vector3 difference = waypoint - transform.position;
-
-            if (AtWaypoint(waypoint)) return false;
-
-            tankMove.MoveTank(Mathf.Sign(difference.magnitude));
-            return true;
         }
 
         private bool AtWaypoint(Vector3 waypoint)
@@ -152,7 +109,19 @@ namespace TankShooter.Control
             return false;
         }
 
+        public void SetToFollow(Transform target)
+        {
+            if (followTarget == null && followTarget != target) StopCurrentPath();
+            followTarget = target;
+        }
 
+        private void StopCurrentPath()
+        {
+            if (traversePath == null) return;
+
+            StopCoroutine(traversePath);
+            traversePath = null;
+        }
 
         private void OnDrawGizmosSelected()
         {
@@ -170,7 +139,12 @@ namespace TankShooter.Control
                 }                
             }
         }
-        
+
+        public void SetIsStationary(bool isStationary)
+        {
+            this.isStationary = isStationary;
+            if (traversePath != null && isStationary == true) StopCurrentPath();
+        }
     }
 }
 

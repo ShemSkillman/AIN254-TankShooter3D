@@ -60,7 +60,7 @@ namespace TankShooter.Control
                             minElevation, maxElevation);
             camTransform.eulerAngles = new Vector3(currentElevation, camTransform.eulerAngles.y, camTransform.eulerAngles.z);
 
-            gunElevate.RotateGunTowards(GetCameraAimLocation());
+            gunElevate.ElevateGunTowards(GetCameraAimLocation());
         }
 
         private void CameraZoom()
@@ -81,7 +81,6 @@ namespace TankShooter.Control
 
             if (Physics.Raycast(rayOrigin, gunnerCamera.transform.forward, out RaycastHit hit, 1000f, layerMask))
             {
-                print(hit.collider.name);
                 return hit.point;
             }
             else

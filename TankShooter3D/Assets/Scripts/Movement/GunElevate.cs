@@ -6,7 +6,10 @@ namespace TankShooter.Movement
     {
         [SerializeField] float gunElevateSpeed = 10f;
         [SerializeField] Transform tankGun;
-        [SerializeField] float tolerance = 0.01f;
+
+        [Header("Elevate towards accuracy")]
+        [Range(0f, 1f)] [SerializeField] float tolerance = 0.01f;
+        [Range(0f, 1f)] [SerializeField] float smoothing = 0.1f;
 
         Rigidbody rb;
 
@@ -20,16 +23,19 @@ namespace TankShooter.Movement
             rb.AddTorque(transform.up * direction * gunElevateSpeed * rb.mass);
         }
 
-        public void RotateGunTowards(Vector3 point)
-        {
+        public void ElevateGunTowards(Vector3 point)
+        {            
             Vector3 targetDirection = point - tankGun.position;
 
             float dot = Vector3.Dot(tankGun.up, targetDirection.normalized);
-            print(dot);
+            float positiveDot = Mathf.Abs(dot);
 
-            if (Mathf.Abs(dot) < tolerance) return;
+            if (positiveDot < tolerance) return;
 
-            ElevateGun(Mathf.Sign(dot));
+            float direction = Mathf.Sign(dot);
+            if (positiveDot < smoothing) direction *= (positiveDot / smoothing);
+
+            ElevateGun(direction);
             return;
         }
     }

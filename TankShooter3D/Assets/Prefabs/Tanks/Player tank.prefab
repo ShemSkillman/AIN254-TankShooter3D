@@ -291,12 +291,17 @@ PrefabInstance:
     - target: {fileID: 929762239302499939, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2834460289920531265, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834460289920531265, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6686254720732741818, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
@@ -311,7 +316,7 @@ PrefabInstance:
     - target: {fileID: 5417776934544369219, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 105581939224905321, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
@@ -364,6 +369,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 8911942994143256519, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 9147327956280682007, guid: 40969542e5d7e594797adc2da1926d91,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -374,6 +384,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bfba40014efb3bc4e94b9135dfeebf0a, type: 2}
+    - target: {fileID: 96130550479622343, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407482334467918812, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812881374786223435, guid: 40969542e5d7e594797adc2da1926d91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e46100275e4222942a7346d4e5645250, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40969542e5d7e594797adc2da1926d91, type: 3}
 --- !u!1 &5254365228710273945 stripped

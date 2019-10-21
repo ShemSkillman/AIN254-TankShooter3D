@@ -37,13 +37,16 @@ namespace TankShooter.Movement
             return true;
         }
 
+        // Returns true when tank is not at the target destination
         public bool MoveTankTowards(Vector3 point, float tolerance)
         {
             Vector3 difference = point - transform.position;
 
             if (AtPoint(point, tolerance)) return false;
 
-            MoveTank(Mathf.Sign(difference.magnitude));
+            float direction = Vector3.Dot(transform.forward, difference.normalized);
+
+            MoveTank(Mathf.Sign(direction));
             return true;
         }
 
