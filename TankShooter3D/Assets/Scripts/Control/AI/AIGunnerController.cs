@@ -40,6 +40,8 @@ namespace TankShooter.Control
 
         private void ControlGun()
         {
+            gunElevate.RotateGunTowards(playerTank.position);
+
             bool hit = Physics.Raycast(gunEnd.position, gunEnd.forward, out RaycastHit ray, range);
 
             if (hit) IdentifyTarget(ray);

@@ -24,10 +24,7 @@ namespace TankShooter.Movement
         {
             Vector3 targetDirection = point - tankGun.position;
 
-            targetDirection = new Vector3(0, targetDirection.y, targetDirection.z).normalized;
-            Vector3 currentDirection = new Vector3(0, tankGun.up.y, tankGun.up.z);
-
-            float dot = Vector3.Dot(currentDirection, targetDirection);
+            float dot = Vector3.Dot(tankGun.up, targetDirection.normalized);
             print(dot);
 
             if (Mathf.Abs(dot) < tolerance) return;

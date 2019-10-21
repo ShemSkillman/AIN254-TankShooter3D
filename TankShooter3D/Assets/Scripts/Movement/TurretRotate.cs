@@ -22,11 +22,8 @@ namespace TankShooter.Movement
         public bool RotateTurretTowards(Vector3 point)
         {
             Vector3 targetDirection = point - transform.position;
-
-            targetDirection = new Vector3(targetDirection.x, 0, targetDirection.z).normalized;
-            Vector3 currentDirection = new Vector3(transform.right.x, 0, transform.right.z);
             
-            float dot = Vector3.Dot(currentDirection, targetDirection);
+            float dot = Vector3.Dot(transform.right, targetDirection.normalized);
             
             if (Mathf.Abs(dot) < tolerance) return false;
 

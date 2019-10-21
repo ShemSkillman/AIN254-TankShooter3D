@@ -1088,11 +1088,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2455308003358983352}
     m_Modifications:
-    - target: {fileID: 5254365228710273945, guid: 01f9c92efdb2e0043b0144811a9b6c35,
-        type: 3}
-      propertyPath: m_Name
-      value: Player tank
-      objectReference: {fileID: 0}
     - target: {fileID: 4034632847354786664, guid: 01f9c92efdb2e0043b0144811a9b6c35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1148,16 +1143,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5254365228710273945, guid: 01f9c92efdb2e0043b0144811a9b6c35,
+        type: 3}
+      propertyPath: m_Name
+      value: Player tank
+      objectReference: {fileID: 0}
     - target: {fileID: 5044656072432275904, guid: 01f9c92efdb2e0043b0144811a9b6c35,
         type: 3}
       propertyPath: mainCanvas
       value: 
       objectReference: {fileID: 9018808035690235862}
-    - target: {fileID: 5044656072432275904, guid: 01f9c92efdb2e0043b0144811a9b6c35,
-        type: 3}
-      propertyPath: flyCamera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5044656072432275904, guid: 01f9c92efdb2e0043b0144811a9b6c35,
         type: 3}
       propertyPath: otherCameras.Array.data[0]
@@ -1167,15 +1162,39 @@ PrefabInstance:
         type: 3}
       propertyPath: otherCameras.Array.data[1]
       value: 
+      objectReference: {fileID: 9004782030135125473}
+    - target: {fileID: 3809597699125732339, guid: 01f9c92efdb2e0043b0144811a9b6c35,
+        type: 3}
+      propertyPath: hitpoints
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 506516691359415736, guid: 01f9c92efdb2e0043b0144811a9b6c35,
+        type: 3}
+      propertyPath: gunnerCamera
+      value: 
+      objectReference: {fileID: 2679821604951143}
+    - target: {fileID: 5395928079941471212, guid: 01f9c92efdb2e0043b0144811a9b6c35,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.11199987
+      objectReference: {fileID: 0}
+    - target: {fileID: 5483129460887631342, guid: 01f9c92efdb2e0043b0144811a9b6c35,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5483129460887631342, guid: 01f9c92efdb2e0043b0144811a9b6c35,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934120842567747847, guid: 01f9c92efdb2e0043b0144811a9b6c35,
+        type: 3}
+      propertyPath: turretRotationSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01f9c92efdb2e0043b0144811a9b6c35, type: 3}
---- !u!4 &188241375334109892 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4034632847354786664, guid: 01f9c92efdb2e0043b0144811a9b6c35,
-    type: 3}
-  m_PrefabInstance: {fileID: 3846392640931520940}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8800903342517303716 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5711188092789774344, guid: 01f9c92efdb2e0043b0144811a9b6c35,
@@ -1188,9 +1207,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3846392640931520940}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &9004782030135125473 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5302505009640899661, guid: 01f9c92efdb2e0043b0144811a9b6c35,
+    type: 3}
+  m_PrefabInstance: {fileID: 3846392640931520940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4412443250070242094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 602642840012956290, guid: 01f9c92efdb2e0043b0144811a9b6c35,
+    type: 3}
+  m_PrefabInstance: {fileID: 3846392640931520940}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &188241375334109892 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4034632847354786664, guid: 01f9c92efdb2e0043b0144811a9b6c35,
     type: 3}
   m_PrefabInstance: {fileID: 3846392640931520940}
   m_PrefabAsset: {fileID: 0}
