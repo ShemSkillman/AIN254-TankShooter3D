@@ -9,7 +9,6 @@ namespace TankShooter.Control
     public class AIGunnerController : MonoBehaviour
     {
         [SerializeField] Transform gunEnd;
-        [SerializeField] Transform gunStart;
         [SerializeField] float shootRange = 10f;
         [SerializeField] float sightRange = 20f;
 
