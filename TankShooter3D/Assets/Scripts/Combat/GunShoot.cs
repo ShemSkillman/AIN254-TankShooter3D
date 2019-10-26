@@ -9,8 +9,16 @@ namespace TankShooter.Combat
         [SerializeField] float shootForce = 1000f;
         [SerializeField] Transform gunEnd;
         [SerializeField] float reloadTime = 0.3f;
+        [SerializeField] int maxAmmoCapacity = 30;
 
+        // State
         bool isReloaded = true;
+        int currentAmmo;
+
+        private void Start()
+        {
+            currentAmmo = maxAmmoCapacity;
+        }
 
         public void ShootGun()
         {
@@ -24,8 +32,15 @@ namespace TankShooter.Combat
             StartCoroutine(Reload());
         }
 
+        public void ReplenishAmmo(int ammoCount)
+        {
+            currentAmmo = Mathf.Min(currentAmmo + ammoCount, maxAmmoCapacity);
+        }
+
         IEnumerator Reload()
         {
+            while (currentAmmo < 1) yield return null;
+            currentAmmo--;
             yield return new WaitForSeconds(reloadTime);
             isReloaded = true;
         }

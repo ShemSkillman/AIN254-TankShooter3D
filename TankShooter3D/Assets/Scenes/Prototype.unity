@@ -777,7 +777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1703019394
 Transform:
   m_ObjectHideFlags: 0
@@ -1268,5 +1268,36 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 1.832
       objectReference: {fileID: 0}
+    - target: {fileID: 9067674587354133990, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_UseLimits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067674587354133990, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_Limits.min
+      value: -27.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067674587354133990, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_Limits.max
+      value: -10.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190612878176949913, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 251756497046930657, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666610239647094683, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 8510595224714188688, guid: 07ca7c5414c86bb498d7caf09fafb5b5,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40d989119bd9d364eb00aa9ac3939ead, type: 3}

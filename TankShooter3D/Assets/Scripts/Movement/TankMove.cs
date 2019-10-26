@@ -16,9 +16,7 @@ namespace TankShooter.Movement
 
         public void MoveTank(float direction)
         {
-            Debug.Log(direction);
-            rb.AddForce(-transform.forward * direction * moveForce * rb.mass);
-            print(transform.forward * direction * moveForce * rb.mass);
+            rb.AddForce(transform.forward * direction * moveForce * rb.mass);
         }
 
         public void TurnTank(float direction)

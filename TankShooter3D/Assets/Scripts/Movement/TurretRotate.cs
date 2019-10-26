@@ -4,7 +4,7 @@ namespace TankShooter.Movement
 {
     public class TurretRotate : MonoBehaviour
     {
-        [SerializeField] float turretRotationSpeed = 10f;
+        [SerializeField] float turretRotationForce = 10f;
 
         [Header("Rotate towards accuracy")]
         [Range(0f, 1f)] [SerializeField] float tolerance = 0.01f;
@@ -17,9 +17,9 @@ namespace TankShooter.Movement
             rb = GetComponent<Rigidbody>();
         }
 
-        private void RotateTurret(float direction)
+        public void RotateTurret(float input)
         {
-            rb.AddTorque(transform.up * direction * turretRotationSpeed * rb.mass);
+            rb.AddTorque(transform.up * input * turretRotationForce * rb.mass);
         }
 
         public void RotateTurretTowards(Vector3 point)

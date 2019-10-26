@@ -4,7 +4,7 @@ namespace TankShooter.Movement
 {
     public class GunElevate : MonoBehaviour
     {
-        [SerializeField] float gunElevateSpeed = 10f;
+        [SerializeField] float elevateForce = 10f;
 
         [Header("Elevate towards accuracy")]
         [Range(0f, 1f)] [SerializeField] float tolerance = 0.01f;
@@ -17,9 +17,9 @@ namespace TankShooter.Movement
             rb = GetComponent<Rigidbody>();
         }
 
-        private void ElevateGun(float direction)
+        public void ElevateGun(float input)
         {
-            rb.AddTorque(transform.up * direction * gunElevateSpeed * rb.mass);
+            rb.AddTorque(transform.up * input * elevateForce * rb.mass);
         }
 
         public void ElevateGunTowards(Vector3 point)

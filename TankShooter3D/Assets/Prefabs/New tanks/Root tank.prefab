@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560577133360974231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.003, y: 1.164, z: 2.475}
+  m_LocalPosition: {x: 0.003, y: 1.164, z: 2.671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5304762041242726258}
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae0a12e5796b3f429c5a66278d35ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretRotationSpeed: 10
+  turretRotationForce: 10
   tolerance: 0.01
   smoothing: 0.1
 --- !u!54 &7151844074494726200
@@ -259,7 +259,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.88, z: 1.8}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.8799999, z: 1.8}
+  m_ConnectedAnchor: {x: 0, y: 0.8799999, z: -1.0320001}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -346,7 +346,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 1.11, z: -1}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 1.1099999, z: 1}
+  m_ConnectedAnchor: {x: 0, y: 1.1099999, z: 1.832}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a824228d541f0a418d9950cf40f3bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunElevateSpeed: 10
+  elevateForce: 10
   tolerance: 0.01
   smoothing: 0.1
 --- !u!114 &448002515654636372
@@ -397,7 +397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c1c1c4563758b418ab17fda559fc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 8510595224714188688, guid: 07ca7c5414c86bb498d7caf09fafb5b5,
+    type: 3}
   shootForce: 1000
   gunEnd: {fileID: 4692615524441269452}
   reloadTime: 0.3
