@@ -22,6 +22,7 @@ namespace TankShooter.Combat
 
         public void ShootGun()
         {
+            print(currentAmmo);
             if (!isReloaded) return;
 
             isReloaded = false;
@@ -32,9 +33,20 @@ namespace TankShooter.Combat
             StartCoroutine(Reload());
         }
 
-        public void ReplenishAmmo(int ammoCount)
+        public int ReplenishAmmo(int newAmmo)
         {
-            currentAmmo = Mathf.Min(currentAmmo + ammoCount, maxAmmoCapacity);
+            int ammoLeftover = newAmmo + currentAmmo - maxAmmoCapacity;
+
+            if (ammoLeftover < 1)
+            {
+                currentAmmo += newAmmo;
+                return 0;
+            }
+            else
+            {
+                currentAmmo = maxAmmoCapacity;
+                return ammoLeftover;
+            }
         }
 
         IEnumerator Reload()
