@@ -24002,7 +24002,7 @@ GameObject:
   - component: {fileID: 54307646593548836}
   - component: {fileID: 135447165041960418}
   - component: {fileID: 8510595224714188688}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Comet projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24068,9 +24068,40 @@ MonoBehaviour:
   lifeTime: 10
   damage: 30
   shotVFX: {fileID: 1056950820860086, guid: 6f3738ba95b11e94d823ca0763d6e26c, type: 3}
-  hitVFX: {fileID: 1576947433937734, guid: 3a1ab18e6861a8940aa332e72f024271, type: 3}
-  shotSFX: {fileID: 0}
-  hitSFX: {fileID: 0}
+  hitVFX: {fileID: 1723818010802918, guid: 3e7c3ad71214c404e880e430f16c2e6a, type: 3}
+  shotSFX:
+  - {fileID: 8300000, guid: a9bd3d67271a1a44ba5e8cdec874c6d2, type: 3}
+  - {fileID: 8300000, guid: a6596c71bad561b47a8fd85232125a5c, type: 3}
+  - {fileID: 8300000, guid: a4706dac98d07fb4f835ed226de9fe4d, type: 3}
+  - {fileID: 8300000, guid: ace388da66c03c440ad0039984327760, type: 3}
+  - {fileID: 8300000, guid: 181c68120cf5c6048897a415bc077598, type: 3}
+  - {fileID: 8300000, guid: cb261abd1107aff4cbd1a37c70a2c9dd, type: 3}
+  - {fileID: 8300000, guid: 48e8dbef8c20da146a5fdc432e961d99, type: 3}
+  - {fileID: 8300000, guid: d530f38638e79184dbbaaf23743bc01f, type: 3}
+  - {fileID: 8300000, guid: 61b8a72c1ace594419d598d28ab743f9, type: 3}
+  - {fileID: 8300000, guid: 98b5831a454304d418930f94e9222ff9, type: 3}
+  - {fileID: 8300000, guid: a19717786df53174db9bf68ac0b3268f, type: 3}
+  - {fileID: 8300000, guid: 7908f16abe34f9048b44edca6ba65bd9, type: 3}
+  - {fileID: 8300000, guid: 1caf473811c7cad469723996f3a169bb, type: 3}
+  - {fileID: 8300000, guid: bdb796a85a7444b4faa0f158a957678c, type: 3}
+  - {fileID: 8300000, guid: 27af53e9cbd7f0c41be61b1248ef216c, type: 3}
+  - {fileID: 8300000, guid: 339724fc5623b1948ae6557b400fb256, type: 3}
+  - {fileID: 8300000, guid: 607e004785739c648af51ba8e54941f5, type: 3}
+  - {fileID: 8300000, guid: 99351ac5c824290429bfc9746056b1b7, type: 3}
+  - {fileID: 8300000, guid: 93f67c53b84d5764c8835689c67483c2, type: 3}
+  - {fileID: 8300000, guid: 5b6d05357fa34904f835af508c576855, type: 3}
+  hitSFX:
+  - {fileID: 8300000, guid: 6a83ea895be860c42916d91104e61cdd, type: 3}
+  - {fileID: 8300000, guid: 321c57076d528934aa5e2ed5eb2798ce, type: 3}
+  - {fileID: 8300000, guid: 4a14985fcced5674bb9a3ec19845dc96, type: 3}
+  - {fileID: 8300000, guid: 0800b4854e84ad243a55e1f7a44844f2, type: 3}
+  - {fileID: 8300000, guid: fa5a8beea5991cb4e8fa6302dc57c59f, type: 3}
+  - {fileID: 8300000, guid: 6f8efae2a70a9f54cbdb5dc8dd4e9fd7, type: 3}
+  - {fileID: 8300000, guid: 5752bcbc37b3cb4448f5ea2854f25740, type: 3}
+  - {fileID: 8300000, guid: 98a3c95a6ae178f4b8249ae2b336832c, type: 3}
+  - {fileID: 8300000, guid: fa55a2f8e3fcfc243be4e933bde97de8, type: 3}
+  - {fileID: 8300000, guid: 74fcae481467c404697202c3dad210a8, type: 3}
+  - {fileID: 8300000, guid: c8c4c2fc396c17d4782362c72b190b27, type: 3}
   trails:
   - {fileID: 1062476681109676}
   - {fileID: 1541701172405400}

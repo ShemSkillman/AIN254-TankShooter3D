@@ -11,9 +11,17 @@ namespace TankShooter.Combat
         [SerializeField] float reloadTime = 0.3f;
         [SerializeField] int maxAmmoCapacity = 30;
 
+        // Cache reference
+        Animation anim;
+
         // State
         bool isReloaded = true;
         int currentAmmo;
+
+        private void Awake()
+        {
+            anim = GetComponent<Animation>();
+        }
 
         private void Start()
         {
@@ -22,11 +30,11 @@ namespace TankShooter.Combat
 
         public void ShootGun()
         {
-            print(currentAmmo);
             if (!isReloaded) return;
 
             isReloaded = false;
 
+            anim.Play();
             Projectile projectile = Instantiate(projectilePrefab, gunEnd.transform.position, transform.rotation);
             projectile.GetComponent<Rigidbody>().AddForce(transform.forward * shootForce);
 

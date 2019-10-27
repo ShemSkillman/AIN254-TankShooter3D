@@ -19,7 +19,7 @@ namespace TankShooter.Movement
 
         public void ElevateGun(float input)
         {
-            rb.AddTorque(transform.up * input * elevateForce * rb.mass);
+            rb.AddTorque(-transform.right * input * elevateForce * rb.mass);
         }
 
         public void ElevateGunTowards(Vector3 point)

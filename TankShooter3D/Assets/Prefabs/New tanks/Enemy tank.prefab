@@ -30,8 +30,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunEnd: {fileID: 4971581375166603759}
-  shootRange: 10
-  sightRange: 20
+  shootRange: 30
+  sightRange: 50
   maxWaitTime: 6
   minStoppingDistance: 5
 --- !u!1001 &423652960439813411

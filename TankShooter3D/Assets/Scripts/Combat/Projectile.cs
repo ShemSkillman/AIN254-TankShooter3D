@@ -12,20 +12,18 @@ namespace TankShooter.Combat
         [Header("FX")]
         [SerializeField] GameObject shotVFX;
         [SerializeField] GameObject hitVFX;
-        [SerializeField] AudioClip shotSFX;
-        [SerializeField] AudioClip hitSFX;
+        [SerializeField] AudioClip[] shotSFX;
+        [SerializeField] AudioClip[] hitSFX;
         public List<GameObject> trails;
 
         //State
         bool collided = false;
 
         // Cache references
-        AudioSource audioSource;
         Rigidbody rb;
 
         private void Awake()
         {
-            audioSource = GetComponent<AudioSource>();
             rb = GetComponent<Rigidbody>();
         }
 
@@ -34,13 +32,12 @@ namespace TankShooter.Combat
             Destroy(gameObject, lifeTime);
 
             if (shotVFX != null) SpawnShotFX();
-            if (shotSFX != null) audioSource.PlayOneShot(shotSFX);
+            if (shotSFX != null && shotSFX.Length > 0) AudioSource.PlayClipAtPoint(shotSFX[Random.Range(0, shotSFX.Length)], transform.position);
         }
 
         private void SpawnShotFX()
         {
             GameObject shotVFXInstance = Instantiate(shotVFX, transform.position, transform.rotation);
-            //shotVFXInstance.transform.forward = transform.forward; // Set direction
             
             float destroyDelay = GetLongestEffectDuration(shotVFXInstance);
             Destroy(shotVFXInstance, destroyDelay);
@@ -70,7 +67,7 @@ namespace TankShooter.Combat
             collided = true;
 
             if (hitVFX != null) SpawnHitVFX(other.GetContact(0));
-            if (hitSFX != null) audioSource.PlayOneShot(hitSFX);
+            if (hitSFX != null && hitSFX.Length > 0) AudioSource.PlayClipAtPoint(hitSFX[Random.Range(0, hitSFX.Length)], transform.position);
             DestroyTrails();
 
             rb.isKinematic = true;
@@ -103,6 +100,7 @@ namespace TankShooter.Combat
             Vector3 hitPos = contactPoint.point;
 
             GameObject hitVFXInstance = Instantiate(hitVFX, hitPos, hitRot);
+            hitVFXInstance.transform.parent = contactPoint.otherCollider.transform;
 
             float destroyDelay = GetLongestEffectDuration(hitVFXInstance);
             Destroy(hitVFXInstance, destroyDelay);
