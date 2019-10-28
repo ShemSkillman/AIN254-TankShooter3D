@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using TankShooter.Core;
+using TankShooter.Movement;
 using UnityEngine;
 
 namespace TankShooter.Combat
@@ -7,12 +9,14 @@ namespace TankShooter.Combat
     {
         [SerializeField] Projectile projectilePrefab;
         [SerializeField] float shootForce = 1000f;
+        [SerializeField] float recoilForce = 5000f;
         [SerializeField] Transform gunEnd;
         [SerializeField] float reloadTime = 0.3f;
         [SerializeField] int maxAmmoCapacity = 30;
 
         // Cache reference
         Animation anim;
+        Rigidbody rb;
 
         // State
         bool isReloaded = true;
@@ -21,6 +25,7 @@ namespace TankShooter.Combat
         private void Awake()
         {
             anim = GetComponent<Animation>();
+            rb = GetComponent<Rigidbody>();
         }
 
         private void Start()
@@ -35,10 +40,21 @@ namespace TankShooter.Combat
             isReloaded = false;
 
             anim.Play();
-            Projectile projectile = Instantiate(projectilePrefab, gunEnd.transform.position, transform.rotation);
-            projectile.GetComponent<Rigidbody>().AddForce(transform.forward * shootForce);
+            SpawnProjectile();
+            Recoil();
 
             StartCoroutine(Reload());
+        }
+
+        private void SpawnProjectile()
+        {
+            Projectile projectile = Instantiate(projectilePrefab, gunEnd.transform.position, transform.rotation);
+            projectile.GetComponent<Rigidbody>().AddForce(transform.forward * shootForce);
+        }
+
+        public void Recoil()
+        {
+            rb.AddForce(-transform.forward * recoilForce * rb.mass);
         }
 
         public int ReplenishAmmo(int newAmmo)
