@@ -47,6 +47,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsPerKill: 15
+--- !u!114 &1548394268052247753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523690445770163236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce5d984f5ef79241918d028c2f147aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6633568507700013005
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +908,7 @@ PrefabInstance:
     - target: {fileID: 2501019431181387411, guid: 0c4a815230b02464ca83965d167fb331,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 2501019431181387411, guid: 0c4a815230b02464ca83965d167fb331,
         type: 3}
@@ -1091,11 +1103,22 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8721926688293867027, guid: ac77b69259f8f7846aeaf10ebee1ca48,
+        type: 3}
+      propertyPath: m_FillOrigin
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac77b69259f8f7846aeaf10ebee1ca48, type: 3}
 --- !u!224 &6769023538135475653 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 236777515823032097, guid: ac77b69259f8f7846aeaf10ebee1ca48,
+    type: 3}
+  m_PrefabInstance: {fileID: 6825580092035220196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4523690445770163236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6953052668026242752, guid: ac77b69259f8f7846aeaf10ebee1ca48,
     type: 3}
   m_PrefabInstance: {fileID: 6825580092035220196}
   m_PrefabAsset: {fileID: 0}

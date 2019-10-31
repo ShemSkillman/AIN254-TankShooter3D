@@ -21,6 +21,7 @@ namespace TankShooter.Combat
         // State
         bool isReloaded = true;
         int currentAmmo;
+        float timeUntilReload = 0f;
 
         private void Awake()
         {
@@ -77,8 +78,36 @@ namespace TankShooter.Combat
         {
             while (currentAmmo < 1) yield return null;
             currentAmmo--;
-            yield return new WaitForSeconds(reloadTime);
+
+            timeUntilReload = reloadTime;
+            while(timeUntilReload > 0f)
+            {
+                timeUntilReload -= Time.deltaTime;
+                yield return null;
+            }
+
             isReloaded = true;
+        }
+
+        public float GetTimeUntilReload()
+        {
+            if (timeUntilReload < 0f) timeUntilReload = 0f;
+            return timeUntilReload;
+        }
+
+        public float GetReloadTime()
+        {
+            return reloadTime;
+        }
+
+        public int GetCurrentAmmo()
+        {
+            return currentAmmo;
+        }
+
+        public int GetMaxAmmoCapacity()
+        {
+            return maxAmmoCapacity;
         }
     }
 }
