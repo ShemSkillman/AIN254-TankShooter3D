@@ -5,13 +5,16 @@ namespace TankShooter.Core
     public class Health : MonoBehaviour
     {
         public int Hitpoints { get { return hitpoints; }  }
+        public int MaxHitpoints { get { return maxHitpoints; } }
         [SerializeField] int hitpoints = 100;
+        int maxHitpoints;
 
         public delegate void OnHitpointsChange(int health);
         public event OnHitpointsChange onHitpointsChange;
 
         private void Start()
         {
+            maxHitpoints = hitpoints;
             onHitpointsChange?.Invoke(hitpoints);
         }
 

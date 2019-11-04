@@ -353,9 +353,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e5f506bcce893449f9ea39eede4755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTargetDistance: 1000
+  UIRefreshRatePerSecond: 25
   reloadText: {fileID: 3046753337369983266}
   ammoCountText: {fileID: 7029567875071105963}
-  distanceToTarget: {fileID: 8199839389551143617}
+  targetDistanceText: {fileID: 8199839389551143617}
   healthPercentageText: {fileID: 4503193649527985015}
   aimingCircle: {fileID: 8721926688293867027}
 --- !u!1 &2731334765590441969
@@ -686,7 +688,7 @@ GameObject:
   - component: {fileID: 7464701183269598500}
   - component: {fileID: 8199839389551143617}
   m_Layer: 5
-  m_Name: Distance text
+  m_Name: Target distance text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -902,7 +904,7 @@ MonoBehaviour:
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
