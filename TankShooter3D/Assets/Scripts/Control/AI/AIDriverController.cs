@@ -20,12 +20,14 @@ namespace TankShooter.Control
         Transform followTarget;        
         bool isStationary = false;
         TankMove tankMove;
+        Transform moveTransform;
         Vector3[] currentWaypoints;
         Coroutine traversePath;
 
         private void Start()
         {
             tankMove = GetComponentInChildren<TankMove>();
+            moveTransform = tankMove.transform;
 
             StartCoroutine(PathRefresh());
         }
@@ -39,7 +41,7 @@ namespace TankShooter.Control
                 if (traversePath != null || isStationary) continue;
 
                 NavMeshPath newPath = new NavMeshPath();
-                Vector3 pos = new Vector3(transform.position.x, 0, transform.position.z);
+                Vector3 pos = new Vector3(moveTransform.position.x, 0, moveTransform.position.z);
                 NavMesh.CalculatePath(pos, GetDestination(), NavMesh.AllAreas, newPath);
 
                 if (newPath.status == NavMeshPathStatus.PathInvalid) continue;
@@ -65,7 +67,7 @@ namespace TankShooter.Control
                     if (!isMoving) waypointIndex++;
                 }
 
-                yield return null;
+                yield return new WaitForFixedUpdate();
             }
             
             yield return new WaitForSeconds(GetWaitTime());

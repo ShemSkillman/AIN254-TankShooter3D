@@ -33,7 +33,7 @@ public class DriverController : MonoBehaviour
         gamepadControl.Gameplay.Disable();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Accelerate(Input.GetAxis("Vertical"));
         Steer(Input.GetAxis("Horizontal"));

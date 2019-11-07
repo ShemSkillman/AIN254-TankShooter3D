@@ -40,9 +40,14 @@ namespace TankShooter.Control
 
         private void Update()
         {
+            IdentifyTarget();
+            CheckTargetLost();
+        }
+
+        private void FixedUpdate()
+        {
             ControlTurret();
             ControlGun();
-            CheckTargetLost();
         }
 
         private void CheckTargetLost()
@@ -85,14 +90,13 @@ namespace TankShooter.Control
             if (target == null) return;
 
             gunElevate.ElevateGunTowards(target.position);
-
-            bool hit = Physics.Raycast(gunEnd.position, gunEnd.forward, out RaycastHit ray, shootRange);
-
-            if (hit) IdentifyTarget(ray);
         }
 
-        private void IdentifyTarget(RaycastHit ray)
+        private void IdentifyTarget()
         {
+            bool hit = Physics.Raycast(gunEnd.position, gunEnd.forward, out RaycastHit ray, shootRange);
+            if (!hit) return;
+
             Health health = ray.collider.gameObject.GetComponentInParent<Health>();
             if (health != null  && health.gameObject.tag == "Player")
             {

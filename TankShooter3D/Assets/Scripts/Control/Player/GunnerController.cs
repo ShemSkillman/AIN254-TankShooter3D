@@ -7,6 +7,8 @@ namespace TankShooter.Control
     public class GunnerController : MonoBehaviour
     {
         [SerializeField] Camera gunnerCamera;
+        [Range(0f, 1f)]
+        [SerializeField] float mouseSensitivity = 1f;
 
         [Header("Camera zoom properties")]
         [SerializeField] float zoomSensitivity = 5;
@@ -38,12 +40,12 @@ namespace TankShooter.Control
 
         private void ControlTurretRotation()
         {
-            turretRotate.RotateTurret(Input.GetAxis("Mouse X"));
+            turretRotate.RotateTurret(Input.GetAxisRaw("Mouse X") * mouseSensitivity);
         }
 
         private void ControlGunElevation()
         {
-            gunElevate.ElevateGun(Input.GetAxis("Mouse Y"));
+            gunElevate.ElevateGun(Input.GetAxisRaw("Mouse Y") * mouseSensitivity);
         }
 
         private void CameraZoom()

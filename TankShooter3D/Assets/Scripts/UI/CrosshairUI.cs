@@ -14,6 +14,7 @@ namespace TankShooter.UI
         [SerializeField] float UIRefreshRatePerSecond = 30;
 
         [Header("UI components")]
+        [SerializeField] RectTransform crossHair;
         [SerializeField] TextMeshProUGUI reloadText;
         [SerializeField] TextMeshProUGUI ammoCountText;
         [SerializeField] TextMeshProUGUI targetDistanceText;
@@ -33,7 +34,7 @@ namespace TankShooter.UI
 
         IEnumerator Start()
         {
-            while(true)
+            while (true)
             {
                 float timeUntilReload = playerGun.GetTimeUntilReload();
                 float reloadTime = playerGun.GetReloadTime();
