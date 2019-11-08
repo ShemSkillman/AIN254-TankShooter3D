@@ -55,7 +55,7 @@ namespace TankShooter.Combat
 
         public void Recoil()
         {
-            rb.AddForce(-transform.forward * recoilForce * rb.mass);
+            rb.AddForce(-transform.forward * recoilForce);
         }
 
         public int ReplenishAmmo(int newAmmo)

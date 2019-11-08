@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae0a12e5796b3f429c5a66278d35ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretRotationForce: 10
+  turretRotationForce: 30
   tolerance: 0.01
   smoothing: 0.1
 --- !u!54 &7151844074494726200
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a824228d541f0a418d9950cf40f3bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevateForce: 10
+  elevateForce: 30
   tolerance: 0.01
   smoothing: 0.1
 --- !u!114 &448002515654636372
@@ -401,9 +401,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8510595224714188688, guid: 07ca7c5414c86bb498d7caf09fafb5b5,
     type: 3}
   shootForce: 1000
-  recoilForce: 5000
+  recoilForce: 200000
   gunEnd: {fileID: 4692615524441269452}
-  reloadTime: 2
+  reloadTime: 4.5
   maxAmmoCapacity: 30
 --- !u!111 &5215455858587865189
 Animation:

@@ -29,7 +29,7 @@ namespace TankShooter.Control
         private void FixedUpdate()
         {
             ControlTurretRotation();
-            ControlGunElevation();
+            ControlGunElevation();                 
         }
 
         private void Update()
@@ -40,12 +40,12 @@ namespace TankShooter.Control
 
         private void ControlTurretRotation()
         {
-            turretRotate.RotateTurret(Input.GetAxisRaw("Mouse X") * mouseSensitivity);
+            turretRotate.RotateTurret(Mathf.Clamp(Input.GetAxis("Mouse X"), -1f, 1f) * mouseSensitivity);
         }
 
         private void ControlGunElevation()
         {
-            gunElevate.ElevateGun(Input.GetAxisRaw("Mouse Y") * mouseSensitivity);
+            gunElevate.ElevateGun(Mathf.Clamp(Input.GetAxis("Mouse Y"), -1f, 1f) * mouseSensitivity);
         }
 
         private void CameraZoom()
