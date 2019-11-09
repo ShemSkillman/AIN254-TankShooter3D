@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 6dfa580cccf9c5c47b1aabd30df77951
+guid: dbfb995417ee21b41bbfb59720b4eb5f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2458582680050178537
+    second: tank parts 2_0
+  - first:
+      213: 1137390623228641988
+    second: tank parts 2_1
+  - first:
+      213: -1000121817100429010
+    second: tank parts 2_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -84,11 +93,74 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: tank parts 2_0
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 181
+        width: 108
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89d657922a110e4e94cbab3708c4790
+      internalID: 2458582680050178537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank parts 2_1
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 355
+        width: 184
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224bd1c12f570c64d91c39aa471912a6
+      internalID: 1137390623228641988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank parts 2_2
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 47
+        width: 183
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbd4c141e9b4d614f8759f642ac80698
+      internalID: -1000121817100429010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
