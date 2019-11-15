@@ -40,12 +40,12 @@ namespace TankShooter.UI
 
         public void UpdateKillCount(int killCount)
         {
-            killCountText.text = "Kills: " + killCount.ToString();
+            killCountText.text = "Kill count:\n" + killCount.ToString();
         }
 
         public void UpdateHealth(int health)
         {
-            hitpointsText.text = "Hitpoints: " + health.ToString() + "/" + initialHP.ToString(); 
+            hitpointsText.text = "Hitpoints:\n" + health.ToString() + "/" + initialHP.ToString(); 
         }
     }
 }
