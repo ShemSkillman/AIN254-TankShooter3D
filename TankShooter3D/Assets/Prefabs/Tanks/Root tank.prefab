@@ -400,7 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8510595224714188688, guid: 07ca7c5414c86bb498d7caf09fafb5b5,
     type: 3}
-  shootForce: 1000
+  shootForce: 1500
   recoilForce: 200000
   gunEnd: {fileID: 4692615524441269452}
   reloadTime: 4.5
@@ -614,6 +614,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitpoints: 300
+  explosionPrefab: {fileID: 2367338195910213574, guid: 6b05226450d826b48a9c88fb52ac34b6,
+    type: 3}
+  tankBody: {fileID: 1702163676543294869}
 --- !u!1 &7227989452955287248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHoverForce: 10
   targetHeight: 1
+  thrusterEffect: {fileID: 8283493275260631718}
 --- !u!1 &7227989452955287256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,7 +1825,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -1874,7 +1878,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 1
       minScalar: 1
       maxCurve:

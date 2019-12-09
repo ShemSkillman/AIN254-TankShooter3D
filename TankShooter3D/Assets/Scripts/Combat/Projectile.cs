@@ -111,7 +111,7 @@ namespace TankShooter.Combat
             Health health = target.GetComponentInParent<Health>();
             if (health == null) return;
 
-            health.TakeDamage(30);
+            health.TakeDamage(damage);
         }
 
     }

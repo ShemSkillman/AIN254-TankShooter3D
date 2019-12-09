@@ -4,7 +4,7 @@ using TankShooter.Combat;
 
 namespace TankShooter.Control
 {
-    public class GunnerController : MonoBehaviour
+    public class GunnerController : Controller
     {
         [SerializeField] Camera gunnerCamera;
         [Range(0f, 1f)]

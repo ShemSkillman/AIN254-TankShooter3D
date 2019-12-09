@@ -9,15 +9,16 @@ namespace TankShooter.Core
         int kills = 0;
         int totalScore = 0;
 
-        public delegate void OnEnemyKilled(int killCount);
+        public delegate void OnEnemyKilled(int killCount, int totalScore);
         public event OnEnemyKilled onEnemyKilled;
 
         public void EnemyDestroyed()
         {
             kills++;
             totalScore += pointsPerKill;
+            print(totalScore);
             
-            onEnemyKilled?.Invoke(kills);
+            onEnemyKilled?.Invoke(kills, totalScore);
         }
         
     }

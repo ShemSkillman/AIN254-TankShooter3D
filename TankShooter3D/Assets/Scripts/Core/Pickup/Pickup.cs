@@ -6,10 +6,10 @@ namespace TankShooter.Core.Pickup
     {
         private void OnTriggerStay(Collider other)
         {
-            GameObject player = other.GetComponentInParent<Health>().gameObject;
-            if (player.tag != "Player") return;
+            Health player = other.GetComponentInParent<Health>();
+            if (player == null || player.tag != "Player") return;
 
-            PickUp(player);
+            PickUp(player.gameObject);
         }
 
         protected abstract void PickUp(GameObject player);

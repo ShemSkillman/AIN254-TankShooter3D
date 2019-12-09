@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using TankShooter.Combat;
 using TankShooter.Core;
 using TMPro;
 
@@ -8,12 +7,10 @@ namespace TankShooter.UI
     public class ScoreUI : MonoBehaviour
     {
         [SerializeField] TextMeshProUGUI killCountText;
-        [SerializeField] TextMeshProUGUI hitpointsText;
+        [SerializeField] TextMeshProUGUI scoreText;
 
         GameObject player;
         Score score;
-        
-        int initialHP;
 
         private void Awake()
         {
@@ -21,31 +18,20 @@ namespace TankShooter.UI
             score = FindObjectOfType<Score>();
         }
 
-        private void Start()
-        {
-            initialHP = player.GetComponent<Health>().Hitpoints;
-        }
-
         private void OnEnable()
         {
-            player.GetComponent<Health>().onHitpointsChange += UpdateHealth;
-            score.onEnemyKilled += UpdateKillCount;
+            score.onEnemyKilled += UpdateScore;
         }
 
         private void OnDisable()
         {
-            player.GetComponent<Health>().onHitpointsChange -= UpdateHealth;
-            score.onEnemyKilled -= UpdateKillCount;
+            score.onEnemyKilled -= UpdateScore;
         }
 
-        public void UpdateKillCount(int killCount)
+        public void UpdateScore(int killCount, int totalScore)
         {
-            killCountText.text = "Kill count:\n" + killCount.ToString();
-        }
-
-        public void UpdateHealth(int health)
-        {
-            hitpointsText.text = "Hitpoints:\n" + health.ToString() + "/" + initialHP.ToString(); 
+            killCountText.text = "Kill count: " + killCount.ToString();
+            scoreText.text = "Score: " + totalScore.ToString();
         }
     }
 }

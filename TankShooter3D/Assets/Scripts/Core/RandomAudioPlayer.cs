@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class RandomAudioPlayer : MonoBehaviour
 {
-    [SerializeField] AudioClip audioClips;
+    [Range(0f, 1f)]
+    [SerializeField] float pitchVariation = 0.1f;
+    [SerializeField] bool onAwake = false;
+    [SerializeField] AudioClip[] audioClips;
 
-    // Start is called before the first frame update
-    void Start()
+    AudioSource audioSource;
+
+    private void Awake()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        if (onAwake) PlayRandomAudio();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayRandomAudio()
     {
-        
+        audioSource.clip = audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
+        audioSource.pitch = UnityEngine.Random.Range(audioSource.pitch - pitchVariation, audioSource.pitch + pitchVariation);
+        audioSource.Play();
     }
 }

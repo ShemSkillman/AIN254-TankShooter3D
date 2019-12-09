@@ -46,6 +46,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy tank
       objectReference: {fileID: 0}
+    - target: {fileID: 7227989452955287236, guid: ee292169525301b4389351afd94d6389,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7227989452955378404, guid: ee292169525301b4389351afd94d6389,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -104,7 +109,7 @@ PrefabInstance:
     - target: {fileID: 7974071511200901229, guid: ee292169525301b4389351afd94d6389,
         type: 3}
       propertyPath: hitpoints
-      value: 100
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1974883533955383879, guid: ee292169525301b4389351afd94d6389,
         type: 3}

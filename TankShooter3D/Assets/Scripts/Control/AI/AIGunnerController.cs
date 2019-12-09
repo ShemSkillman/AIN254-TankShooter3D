@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace TankShooter.Control
 {
-    public class AIGunnerController : MonoBehaviour
+    public class AIGunnerController : Controller
     {
         [SerializeField] Transform gunEnd;
         [SerializeField] float shootRange = 10f;

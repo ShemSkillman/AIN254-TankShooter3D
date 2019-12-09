@@ -6,7 +6,7 @@ using System;
 
 namespace TankShooter.Control
 {
-    public class AIDriverController : MonoBehaviour
+    public class AIDriverController : Controller
     {
         [Header("Pathfinding")]
         [SerializeField] float pathRefreshRate = 0.25f;

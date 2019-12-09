@@ -2,53 +2,57 @@
 using TankShooter.Movement;
 using UnityEngine.InputSystem;
 
-public class DriverController : MonoBehaviour
+namespace TankShooter.Control
 {
-    TankMove tankMove;
-    DriverControls gamepadControl;
-
-    Vector2 moveInput;
-    Vector2 steerInput;
-
-    private void Awake()
+    public class DriverController : Controller
     {
-        tankMove = GetComponentInChildren<TankMove>();
+        TankMove tankMove;
+        DriverControls gamepadControl;
 
-        gamepadControl = new DriverControls();
+        Vector2 moveInput;
+        Vector2 steerInput;
 
-        gamepadControl.Gameplay.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
-        gamepadControl.Gameplay.Move.canceled += ctx => moveInput = Vector2.zero;
+        private void Awake()
+        {
+            tankMove = GetComponentInChildren<TankMove>();
 
-        gamepadControl.Gameplay.Steer.performed += ctx => steerInput = ctx.ReadValue<Vector2>();
-        gamepadControl.Gameplay.Steer.canceled += ctx => steerInput = Vector2.zero;
-    }
+            gamepadControl = new DriverControls();
 
-    private void OnEnable()
-    {
-        gamepadControl.Gameplay.Enable();
-    }
+            gamepadControl.Gameplay.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+            gamepadControl.Gameplay.Move.canceled += ctx => moveInput = Vector2.zero;
 
-    private void OnDisable()
-    {
-        gamepadControl.Gameplay.Disable();
-    }
+            gamepadControl.Gameplay.Steer.performed += ctx => steerInput = ctx.ReadValue<Vector2>();
+            gamepadControl.Gameplay.Steer.canceled += ctx => steerInput = Vector2.zero;
+        }
 
-    private void FixedUpdate()
-    {
-        Accelerate(Input.GetAxis("Vertical"));
-        Steer(Input.GetAxis("Horizontal"));
+        private void OnEnable()
+        {
+            gamepadControl.Gameplay.Enable();
+        }
 
-        Accelerate(moveInput.y);
-        Steer(steerInput.x);
-    }    
+        private void OnDisable()
+        {
+            gamepadControl.Gameplay.Disable();
+        }
 
-    private void Accelerate(float input)
-    {
-        tankMove.MoveTank(input);
-    }
+        private void FixedUpdate()
+        {
+            Accelerate(Input.GetAxis("Vertical"));
+            Steer(Input.GetAxis("Horizontal"));
 
-    private void Steer(float input)
-    {
-        tankMove.TurnTank(input);
+            Accelerate(moveInput.y);
+            Steer(steerInput.x);
+        }
+
+        private void Accelerate(float input)
+        {
+            tankMove.MoveTank(input);
+        }
+
+        private void Steer(float input)
+        {
+            tankMove.TurnTank(input);
+        }
     }
 }
+
