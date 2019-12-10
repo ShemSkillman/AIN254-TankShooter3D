@@ -40,14 +40,12 @@ namespace TankShooter.Control
 
         private void Update()
         {
-            IdentifyTarget();
             CheckTargetLost();
         }
 
         private void FixedUpdate()
         {
-            ControlTurret();
-            ControlGun();
+            AimAtTarget();
         }
 
         private void CheckTargetLost()
@@ -65,45 +63,83 @@ namespace TankShooter.Control
             {
                 yield return new WaitForSeconds(1f);
 
+                if (target != null) continue;
+
                 driver.SetToFollow(target);
 
-                Collider[] targets = Physics.OverlapSphere(transform.position, sightRange, targetMask);
-                if (targets.Length == 0)
+                Collider[] targetColliders = Physics.OverlapSphere(transform.position, sightRange, targetMask);
+                if (targetColliders.Length == 0)
                 {
                     target = null;
                     continue;
                 }
 
-                target = targets[UnityEngine.Random.Range(0, targets.Length)].transform;
+                foreach(Collider targetCollider in targetColliders) // Enemy tank targets biggest part of player tank, the body
+                {
+                    TankMove mainTankBody = targetCollider.GetComponentInParent<TankMove>();
+                    if (mainTankBody == null) continue;
+
+                    target = targetCollider.transform;
+                    break;
+                }
             }            
         }
 
-        private void ControlTurret()
+        private void AimAtTarget()
         {
             if (target == null) return;
 
-            turretRotate.RotateTurretTowards(target.position);
+            Rigidbody targetRb = target.GetComponentInParent<Rigidbody>();
+            
+            Vector3 aimPos = GetAim(targetRb.position, targetRb.velocity, gunShoot.SelectedProjectile);
+
+            ControlTurret(aimPos);
+            ControlGun(aimPos);
+            ShootGun(aimPos);
         }
 
-        private void ControlGun()
+        private Vector3 GetAim(Vector3 targetPos, Vector3 targetVelocity, Projectile projectile)
         {
-            if (target == null) return;
+            float distanceToTarget = Vector3.Distance(gunEnd.position, targetPos);
+            float timeToReachTarget = distanceToTarget / projectile.ShootForce;
 
-            gunElevate.ElevateGunTowards(target.position);
-        }
-
-        private void IdentifyTarget()
-        {
-            bool hit = Physics.Raycast(gunEnd.position, gunEnd.forward, out RaycastHit ray, shootRange);
-            if (!hit) return;
-
-            Health health = ray.collider.gameObject.GetComponentInParent<Health>();
-            if (health != null  && health.gameObject.tag == "Player")
+            Vector3 futureTargetPos = target.position + targetVelocity * timeToReachTarget;
+            if (targetPos != futureTargetPos)
             {
-                if(ray.distance <= stoppingDistance) driver.SetIsStationary(true);
-                timeSinceTargetInSight = 0f;
-                gunShoot.ShootGun();
+                return GetAim(futureTargetPos, targetVelocity, projectile);
             }
+            else
+            {
+                return targetPos;
+            }
+        }
+
+        private void ControlTurret(Vector3 aimPos)
+        {
+            turretRotate.RotateTurretTowards(aimPos);
+        }
+
+        private void ControlGun(Vector3 aimPos)
+        {
+            gunElevate.ElevateGunTowards(aimPos);
+        }
+
+        private void ShootGun(Vector3 targetLocation)
+        {
+            Vector3 targetDir = (targetLocation - gunEnd.position).normalized;
+            float dot =  Vector3.Dot(gunEnd.forward, targetDir);
+
+            if (dot < 0.99f) return;
+
+            float targetLocationDistance = Vector3.Distance(gunEnd.position, targetLocation);
+            int layerMask = ~targetMask.value;
+
+            bool isBlocked = Physics.Raycast(gunEnd.position, gunEnd.forward, targetLocationDistance, layerMask);
+            
+            if (isBlocked) return;
+
+            timeSinceTargetInSight = 0f;
+            gunShoot.ShootGun();
         }
     }
 }

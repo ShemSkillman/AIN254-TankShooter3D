@@ -8,6 +8,11 @@ namespace TankShooter.Combat
     {
         [SerializeField] float lifeTime = 10f;
         [SerializeField] int damage = 30;
+        [SerializeField] float bulletDropForce = 1f;
+        [SerializeField] float shootForce = 40f;
+
+        public float BulletDropForce { get { return bulletDropForce; } }
+        public float ShootForce { get { return shootForce; } }
 
         [Header("FX")]
         [SerializeField] GameObject shotVFX;
@@ -33,6 +38,12 @@ namespace TankShooter.Combat
 
             if (shotVFX != null) SpawnShotFX();
             if (shotSFX != null && shotSFX.Length > 0) AudioSource.PlayClipAtPoint(shotSFX[Random.Range(0, shotSFX.Length)], transform.position);
+        }
+
+        private void FixedUpdate()
+        {
+            Vector3 gravity = bulletDropForce * -Vector3.up;
+            rb.AddForce(gravity, ForceMode.Acceleration);
         }
 
         private void SpawnShotFX()
@@ -70,6 +81,7 @@ namespace TankShooter.Combat
             if (hitSFX != null && hitSFX.Length > 0) AudioSource.PlayClipAtPoint(hitSFX[Random.Range(0, hitSFX.Length)], transform.position);
             DestroyTrails();
 
+            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
             rb.isKinematic = true;
             rb.velocity = Vector3.zero;
 

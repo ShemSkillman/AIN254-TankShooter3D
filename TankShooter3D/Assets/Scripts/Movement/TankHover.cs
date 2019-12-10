@@ -39,7 +39,6 @@ namespace TankShooter.Control
 
         public void Die()
         {
-            print("thrustersdown");
             thrusterEffect.SetActive(false);
             isPowered = false;
         }

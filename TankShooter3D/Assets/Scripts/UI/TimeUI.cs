@@ -13,13 +13,14 @@ public class TimeUI : MonoBehaviour
 
     IEnumerator Timer()
     {
-        int seconds = 0;
+        int totalSeconds = 0;
 
         while (true)
         {
             yield return new WaitForSeconds(1f);
 
-            seconds += 1;
+            totalSeconds += 1;
+            int seconds = totalSeconds;
 
             int hours = seconds / 3600;
             seconds -= hours * 3600;

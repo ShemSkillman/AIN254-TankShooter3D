@@ -8,11 +8,12 @@ namespace TankShooter.Combat
     public class GunShoot : MonoBehaviour
     {
         [SerializeField] Projectile projectilePrefab;
-        [SerializeField] float shootForce = 1000f;
         [SerializeField] float recoilForce = 5000f;
         [SerializeField] Transform gunEnd;
         [SerializeField] float reloadTime = 0.3f;
         [SerializeField] int maxAmmoCapacity = 30;
+
+        public Projectile SelectedProjectile { get { return projectilePrefab; } }
 
         // Cache reference
         Animation anim;
@@ -50,7 +51,8 @@ namespace TankShooter.Combat
         private void SpawnProjectile()
         {
             Projectile projectile = Instantiate(projectilePrefab, gunEnd.transform.position, transform.rotation);
-            projectile.GetComponent<Rigidbody>().AddForce(transform.forward * shootForce);
+            Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+            projectileRb.AddForce(transform.forward * projectile.ShootForce, ForceMode.VelocityChange);
         }
 
         public void Recoil()

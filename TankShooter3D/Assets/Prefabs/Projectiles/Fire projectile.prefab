@@ -14556,11 +14556,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4313219708231010}
+  - component: {fileID: -4058283901953459429}
   - component: {fileID: 199461392963056592}
   - component: {fileID: 198642742753815182}
   - component: {fileID: 54378844565543512}
-  - component: {fileID: 136350987479803286}
-  - component: {fileID: 6039568770968399135}
+  - component: {fileID: 3330934326452421196}
   m_Layer: 0
   m_Name: Fire projectile
   m_TagString: Untagged
@@ -14587,6 +14587,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4058283901953459429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707102027251842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37160a2a24c8094e914d9f24abfea6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 10
+  damage: 20
+  bulletDropForce: 0
+  shootForce: 80
+  shotVFX: {fileID: 1310787322710076, guid: 41cd53ec80f24134d86b612ccddf8b25, type: 3}
+  hitVFX: {fileID: 1183852268493988, guid: 524e1f348f3798444b3623e8b326561f, type: 3}
+  shotSFX:
+  - {fileID: 8300000, guid: 93b7dd16af071064b8715eae4b1c9bd7, type: 3}
+  - {fileID: 8300000, guid: f4a036a7d6f0f164e97836f8c8663df3, type: 3}
+  - {fileID: 8300000, guid: f644087a28da014458c35e870b192f14, type: 3}
+  hitSFX:
+  - {fileID: 8300000, guid: 93f67c53b84d5764c8835689c67483c2, type: 3}
+  - {fileID: 8300000, guid: 5b6d05357fa34904f835af508c576855, type: 3}
+  - {fileID: 8300000, guid: 99351ac5c824290429bfc9746056b1b7, type: 3}
+  trails:
+  - {fileID: 1739691434595618}
+  - {fileID: 1478543064790934}
+  - {fileID: 1042148504854618}
 --- !u!199 &199461392963056592
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -19390,9 +19420,9 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &136350987479803286
-CapsuleCollider:
+  m_CollisionDetection: 2
+--- !u!135 &3330934326452421196
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19401,32 +19431,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.8
-  m_Height: 0.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0.1}
---- !u!114 &6039568770968399135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707102027251842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d37160a2a24c8094e914d9f24abfea6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeTime: 10
-  damage: 30
-  shotVFX: {fileID: 1310787322710076, guid: 41cd53ec80f24134d86b612ccddf8b25, type: 3}
-  hitVFX: {fileID: 1183852268493988, guid: 524e1f348f3798444b3623e8b326561f, type: 3}
-  shotSFX: {fileID: 0}
-  hitSFX: {fileID: 0}
-  trails:
-  - {fileID: 1739691434595618}
-  - {fileID: 1478543064790934}
-  - {fileID: 1042148504854618}
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1739691434595618
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,6 @@ namespace TankShooter.Core
         {
             kills++;
             totalScore += pointsPerKill;
-            print(totalScore);
             
             onEnemyKilled?.Invoke(kills, totalScore);
         }
