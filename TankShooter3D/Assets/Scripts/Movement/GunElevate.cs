@@ -11,10 +11,12 @@ namespace TankShooter.Movement
         [Range(0f, 1f)] [SerializeField] float smoothing = 0.1f;
 
         Rigidbody rb;
+        HingeJoint hj;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
+            hj = GetComponent<HingeJoint>();
         }
 
         public void ElevateGun(float input)
@@ -23,8 +25,10 @@ namespace TankShooter.Movement
         }
 
         public void ElevateGunTowards(Vector3 point)
-        {            
-            Vector3 targetDirection = point - transform.position;
+        {
+            Vector3 gunPos = transform.position + hj.anchor;
+
+            Vector3 targetDirection = point - gunPos;
 
             float dot = Vector3.Dot(transform.up, targetDirection.normalized);
             float positiveDot = Mathf.Abs(dot);

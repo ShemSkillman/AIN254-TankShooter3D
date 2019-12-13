@@ -41,7 +41,7 @@ namespace TankShooter.Combat
 
             isReloaded = false;
 
-            anim.Play();
+            if (anim != null) anim.Play();
             SpawnProjectile();
             Recoil();
 
@@ -116,6 +116,15 @@ namespace TankShooter.Combat
         {
             Physics.Raycast(gunEnd.position, transform.forward, out RaycastHit ray, maxDistance);
             return ray.distance;
+        }
+
+        public Vector3 GetShootLocation(float maxDistance)
+        {
+            bool isHit = Physics.Raycast(gunEnd.position, transform.forward, out RaycastHit ray, maxDistance);
+
+            if (!isHit) ray.point = gunEnd.position + transform.forward * maxDistance;
+
+            return ray.point;
         }
     }
 }

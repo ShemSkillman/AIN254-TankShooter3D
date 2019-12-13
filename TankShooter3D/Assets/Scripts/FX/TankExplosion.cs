@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TankExplosion : MonoBehaviour
 {
+    public delegate void ExplosionFinished();
+    public event ExplosionFinished onExplosionFinished;
+
     [SerializeField] GameObject miniExplosionPrefab;
     [SerializeField] float explosionRadius = 5f;
     [SerializeField] float explosionPower = 10f;
@@ -26,6 +29,8 @@ public class TankExplosion : MonoBehaviour
 
             StartCoroutine(DestroyTankPart(part));
         }
+
+        StartCoroutine(DestroyTank());
     }
 
     IEnumerator DestroyTankPart(Rigidbody tankPart)
@@ -33,8 +38,15 @@ public class TankExplosion : MonoBehaviour
         float timeDelay = Random.Range(minTankPartLifeTime, maxTankPartLifeTime);
         yield return new WaitForSeconds(timeDelay);
 
-        if (miniExplosionPrefab != null) Instantiate(miniExplosionPrefab, tankPart.transform.position + tankPart.centerOfMass, Quaternion.identity);
+        if (miniExplosionPrefab != null) Instantiate(miniExplosionPrefab, tankPart.position, Quaternion.identity);
         Destroy(tankPart.gameObject);
+    }
+
+    IEnumerator DestroyTank()
+    {
+        yield return new WaitForSeconds(maxTankPartLifeTime * 2);
+
+        onExplosionFinished?.Invoke();
     }
 
 }

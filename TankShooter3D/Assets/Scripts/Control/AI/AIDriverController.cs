@@ -6,7 +6,7 @@ using System;
 
 namespace TankShooter.Control
 {
-    public class AIDriverController : Controller
+    public class AIDriverController : MonoBehaviour
     {
         [Header("Pathfinding")]
         [SerializeField] float pathRefreshRate = 0.25f;
@@ -146,6 +146,11 @@ namespace TankShooter.Control
         {
             this.isStationary = isStationary;
             if (traversePath != null && isStationary == true) StopCurrentPath();
+        }
+
+        public void Die()
+        {
+            Destroy(this);
         }
     }
 }

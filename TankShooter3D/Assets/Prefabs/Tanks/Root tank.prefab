@@ -26,12 +26,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10121923334993027}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.454127, z: -1.873378}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7227989452955378424}
   m_Father: {fileID: 7227989452955378404}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1777562533531604170
 Rigidbody:
@@ -153,6 +153,38 @@ Transform:
   m_Father: {fileID: 7227989452955378422}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2838322379704276740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8421663138709304373}
+  m_Layer: 0
+  m_Name: Tank main weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8421663138709304373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2838322379704276740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3312178129056431090}
+  - {fileID: 5304762041242726258}
+  m_Father: {fileID: 7227989452955378404}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2856098539909106415
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,13 +241,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3282674021292412683}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.832}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.892, z: -1.344338}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7227989452955378418}
-  m_Father: {fileID: 7227989452955378404}
-  m_RootOrder: 1
+  m_Father: {fileID: 8421663138709304373}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6866769155768161769
 MonoBehaviour:
@@ -256,10 +288,10 @@ HingeJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3282674021292412683}
   m_ConnectedBody: {fileID: 1648229413100249480}
-  m_Anchor: {x: 0, y: 0.88, z: 1.8}
+  m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.8799999, z: -1.0320001}
+  m_ConnectedAnchor: {x: 0, y: 0.89199996, z: -1.344338}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -311,14 +343,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3807966015052160837}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7227989452955378426}
   - {fileID: 4692615524441269452}
-  m_Father: {fileID: 7227989452955378404}
-  m_RootOrder: 2
+  m_Father: {fileID: 8421663138709304373}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5011052352324493358
 Rigidbody:
@@ -347,7 +379,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 1.11, z: -1}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 1.1099999, z: 1.832}
+  m_ConnectedAnchor: {x: 0, y: 0.21799988, z: 0.34433806}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -400,7 +432,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8510595224714188688, guid: 07ca7c5414c86bb498d7caf09fafb5b5,
     type: 3}
-  shootForce: 40
   recoilForce: 200000
   gunEnd: {fileID: 4692615524441269452}
   reloadTime: 4.5
@@ -595,8 +626,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1702163676543294869}
-  - {fileID: 3312178129056431090}
-  - {fileID: 5304762041242726258}
+  - {fileID: 8421663138709304373}
   - {fileID: 6005634371207159326}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -617,6 +647,11 @@ MonoBehaviour:
   explosionPrefab: {fileID: 2367338195910213574, guid: 6b05226450d826b48a9c88fb52ac34b6,
     type: 3}
   tankBody: {fileID: 1702163676543294869}
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &7227989452955287248
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +759,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7227989452955287250}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0.89199996, z: 1.4876624}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3312178129056431090}
@@ -830,6 +865,7 @@ GameObject:
   - component: {fileID: 5946154377414638567}
   - component: {fileID: 7008170521497618598}
   - component: {fileID: 969033707079451087}
+  - component: {fileID: 1982986983707981195}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -908,8 +944,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.3156772, y: 3.5579262, z: 1.1531947}
-  m_Center: {x: 0, y: 0.24766591, z: 0.8584161}
+  m_Size: {x: 3.3156772, y: 2.4168768, z: 1.1531947}
+  m_Center: {x: 0, y: -0.32285902, z: 0.8584161}
 --- !u!136 &7008170521497618598
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -920,10 +956,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.59
+  m_Radius: 0.48314893
   m_Height: 2.9
   m_Direction: 0
-  m_Center: {x: 0, y: 2.18, z: 0.65}
+  m_Center: {x: 0, y: 2.1602845, z: 0.5628644}
 --- !u!136 &969033707079451087
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -938,6 +974,19 @@ CapsuleCollider:
   m_Height: 2.79
   m_Direction: 0
   m_Center: {x: 0, y: -1.97, z: 0.85}
+--- !u!65 &1982986983707981195
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227989452955287252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.3156788, y: 1.2782947, z: 0.8042453}
+  m_Center: {x: 0, y: 1.5100534, z: 0.683337}
 --- !u!1 &7227989452955287254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7227989452955287256}
   m_LocalRotation: {x: -0, y: 0.70710677, z: 0.7071069, w: 0}
-  m_LocalPosition: {x: 0, y: 1.4541271, z: -1.8733784}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7227989452955378416}

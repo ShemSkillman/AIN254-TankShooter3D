@@ -10,6 +10,7 @@ namespace TankShooter.Combat
         [SerializeField] int damage = 30;
         [SerializeField] float bulletDropForce = 1f;
         [SerializeField] float shootForce = 40f;
+        [SerializeField] float shootVol = 1f;
 
         public float BulletDropForce { get { return bulletDropForce; } }
         public float ShootForce { get { return shootForce; } }
@@ -37,7 +38,7 @@ namespace TankShooter.Combat
             Destroy(gameObject, lifeTime);
 
             if (shotVFX != null) SpawnShotFX();
-            if (shotSFX != null && shotSFX.Length > 0) AudioSource.PlayClipAtPoint(shotSFX[Random.Range(0, shotSFX.Length)], transform.position);
+            if (shotSFX != null && shotSFX.Length > 0) AudioSource.PlayClipAtPoint(shotSFX[Random.Range(0, shotSFX.Length)], transform.position, shootVol);
         }
 
         private void FixedUpdate()

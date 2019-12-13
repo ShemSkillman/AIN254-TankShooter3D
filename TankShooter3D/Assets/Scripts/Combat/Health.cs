@@ -1,5 +1,6 @@
 ﻿using TankShooter.Movement;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TankShooter.Core
 {
@@ -18,6 +19,8 @@ namespace TankShooter.Core
         public delegate void OnHitpointsChange(int health);
         public event OnHitpointsChange onHitpointsChange;
 
+        public UnityEvent OnDie;
+
         private void Start()
         {
             tankParts = GetComponentsInChildren<Rigidbody>();
@@ -34,22 +37,31 @@ namespace TankShooter.Core
 
             if (hitpoints < 1)
             {
-                DestroyTank();
+                ExplodeTank();
+                OnDie.Invoke();
             }
+        }
+
+        private void ExplodeTank()
+        {
+            isDead = true;
+
+            if (tag == "Enemy") FindObjectOfType<GameSession>().EnemyDestroyed();
+            
+            BroadcastMessage("Die");
+            TankExplosion explosion = Instantiate(explosionPrefab, GetTankPosition(), Quaternion.identity, transform);
+            explosion.onExplosionFinished += DestroyTank;
+            explosion.Explode(tankParts);
+        }
+
+        public Vector3 GetTankPosition()
+        {
+            return tankBody.position;
         }
 
         private void DestroyTank()
         {
-            isDead = true;
-
-            if (tag == "Enemy") FindObjectOfType<Score>().EnemyDestroyed();
-
-            if (explosionPrefab != null)
-            {
-                BroadcastMessage("Die");
-                TankExplosion explosion = Instantiate(explosionPrefab, tankBody.position, Quaternion.identity);
-                explosion.Explode(tankParts);
-            }
+            Destroy(gameObject);
         }
     }
 }

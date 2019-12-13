@@ -10,6 +10,7 @@ namespace TankShooter.Core.Pickup
         protected override void PickUp(GameObject player)
         {
             GunShoot gunShoot = player.GetComponentInChildren<GunShoot>();
+            if (gunShoot == null) return;
 
             ammoStorage = gunShoot.ReplenishAmmo(ammoStorage);
             if (ammoStorage < 1) Destroy(gameObject);

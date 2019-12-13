@@ -14379,8 +14379,8 @@ MonoBehaviour:
     type: 3}
   explosionRadius: 5
   explosionPower: 600
-  minTankPartLifeTime: 1
-  maxTankPartLifeTime: 8
+  minTankPartLifeTime: 5
+  maxTankPartLifeTime: 10
 --- !u!114 &7344553137000364681
 MonoBehaviour:
   m_ObjectHideFlags: 0

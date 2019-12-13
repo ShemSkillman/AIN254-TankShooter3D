@@ -61,5 +61,13 @@ namespace TankShooter.Movement
 
             return false;
         }
+
+        public float GetTankSpeedKmpH()
+        {
+            Vector3 localVelocity = transform.InverseTransformDirection(rb.velocity);
+            float speedKmpH = (localVelocity.magnitude / 1000) * 3600 * Mathf.Sign(localVelocity.z);
+
+            return speedKmpH;
+        }
     }
 }

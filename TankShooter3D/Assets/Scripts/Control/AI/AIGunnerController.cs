@@ -6,11 +6,12 @@ using System.Collections;
 
 namespace TankShooter.Control
 {
-    public class AIGunnerController : Controller
+    public class AIGunnerController : MonoBehaviour
     {
         [SerializeField] Transform gunEnd;
         [SerializeField] float shootRange = 10f;
         [SerializeField] float sightRange = 20f;
+        [SerializeField] int maxAimIterations = 100;
 
         TurretRotate turretRotate;
         AIDriverController driver;
@@ -91,22 +92,24 @@ namespace TankShooter.Control
 
             Rigidbody targetRb = target.GetComponentInParent<Rigidbody>();
             
-            Vector3 aimPos = GetAim(targetRb.position, targetRb.velocity, gunShoot.SelectedProjectile);
+            Vector3 aimPos = GetAim(targetRb.position, targetRb.velocity, gunShoot.SelectedProjectile, 0);
 
             ControlTurret(aimPos);
             ControlGun(aimPos);
             ShootGun(aimPos);
         }
 
-        private Vector3 GetAim(Vector3 targetPos, Vector3 targetVelocity, Projectile projectile)
+        private Vector3 GetAim(Vector3 targetPos, Vector3 targetVelocity, Projectile projectile, int i)
         {
+            i++;
+
             float distanceToTarget = Vector3.Distance(gunEnd.position, targetPos);
             float timeToReachTarget = distanceToTarget / projectile.ShootForce;
 
             Vector3 futureTargetPos = target.position + targetVelocity * timeToReachTarget;
-            if (targetPos != futureTargetPos)
+            if (targetPos != futureTargetPos && i < maxAimIterations)
             {
-                return GetAim(futureTargetPos, targetVelocity, projectile);
+                return GetAim(futureTargetPos, targetVelocity, projectile, i);
             }
             else
             {
@@ -140,6 +143,11 @@ namespace TankShooter.Control
 
             timeSinceTargetInSight = 0f;
             gunShoot.ShootGun();
+        }
+
+        public void Die()
+        {
+            Destroy(this);
         }
     }
 }

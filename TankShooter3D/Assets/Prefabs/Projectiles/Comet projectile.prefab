@@ -24066,9 +24066,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 10
-  damage: 30
+  damage: 120
   bulletDropForce: 4
-  shootForce: 40
+  shootForce: 60
   shotVFX: {fileID: 1056950820860086, guid: 6f3738ba95b11e94d823ca0763d6e26c, type: 3}
   hitVFX: {fileID: 1723818010802918, guid: 3e7c3ad71214c404e880e430f16c2e6a, type: 3}
   shotSFX:

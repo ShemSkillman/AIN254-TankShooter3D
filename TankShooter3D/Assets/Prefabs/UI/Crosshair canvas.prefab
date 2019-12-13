@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 4460885003471869038}
   - component: {fileID: 7180859294911114701}
   - component: {fileID: 2360539070604714934}
+  - component: {fileID: 8205808578314843184}
   m_Layer: 5
   m_Name: Crosshair canvas
   m_TagString: Untagged
@@ -363,6 +364,18 @@ MonoBehaviour:
   targetDistanceText: {fileID: 8199839389551143617}
   healthPercentageText: {fileID: 4503193649527985015}
   aimingCircle: {fileID: 8721926688293867027}
+--- !u!114 &8205808578314843184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697481581024981708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b25cb9813381994292da576fd40260a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2731334765590441969
 GameObject:
   m_ObjectHideFlags: 0
