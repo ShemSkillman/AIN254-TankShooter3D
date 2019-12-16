@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace TankShooter.Control
+namespace TankShooter.Movement
 {
     public class TankHover : MonoBehaviour
     {
@@ -10,6 +10,7 @@ namespace TankShooter.Control
         [SerializeField] GameObject thrusterEffect;
 
         Rigidbody rb;
+        Vector3 groundDir;
 
         Transform[] thrusters;
         LayerMask terrainLayer;
@@ -27,20 +28,34 @@ namespace TankShooter.Control
         {
             if (!isPowered) return;
 
+            Vector3 averageNormal = Vector3.zero;
+
             for (int i = 0; i < thrusters.Length; i++)
             {
                 Physics.Raycast(thrusters[i].position, Vector3.down, out RaycastHit hit, targetHeight, terrainLayer);
 
-                if (hit.collider == null) continue;
+                if (hit.collider == null)
+                {                  
+                    continue;
+                }
 
-                rb.AddForceAtPosition(Vector3.up * maxHoverForce * rb.mass * (1f - (hit.distance / targetHeight)), thrusters[i].position);
+                averageNormal += hit.normal;
+
+                rb.AddForceAtPosition(hit.normal * maxHoverForce * (1f - (hit.distance / targetHeight)), thrusters[i].position, ForceMode.Acceleration);
             }
+
+            groundDir = Vector3.Cross(rb.transform.right, averageNormal.normalized);
         }
 
         public void Die()
         {
             thrusterEffect.SetActive(false);
             isPowered = false;
+        }
+
+        public Vector3 GetGroundDirection()
+        {
+            return groundDir;
         }
     }
 }

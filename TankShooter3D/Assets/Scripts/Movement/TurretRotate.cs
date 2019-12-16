@@ -21,7 +21,7 @@ namespace TankShooter.Movement
 
         public void RotateTurret(float input)
         {
-            rb.AddTorque(transform.up * input * turretRotationForce * rb.mass);
+            rb.AddTorque(transform.up * input * turretRotationForce, ForceMode.VelocityChange);
         }
 
         public void RotateTurretTowards(Vector3 point)

@@ -8,20 +8,22 @@ namespace TankShooter.Movement
         [SerializeField] float rotationSpeed = 20f;
 
         Rigidbody rb;
+        TankHover tankHover;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
+            tankHover = GetComponentInChildren<TankHover>();
         }
 
-        public void MoveTank(float direction)
+        public void MoveTank(float input)
         {
-            rb.AddForce(transform.forward * direction * moveForce * rb.mass);
+            rb.AddForce(tankHover.GetGroundDirection() * input * moveForce, ForceMode.Acceleration);
         }        
 
-        public void TurnTank(float direction)
+        public void TurnTank(float input)
         {
-            rb.AddTorque(Vector3.up * direction * rotationSpeed * rb.mass);
+            rb.AddTorque(Vector3.up * input * rotationSpeed, ForceMode.Acceleration);
         }
 
         // Returns true when tank is not facing the target point

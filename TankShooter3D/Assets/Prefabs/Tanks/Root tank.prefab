@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae0a12e5796b3f429c5a66278d35ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretRotationForce: 30
+  turretRotationForce: 1
   tolerance: 0.01
   smoothing: 0.1
 --- !u!54 &7151844074494726200
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a824228d541f0a418d9950cf40f3bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevateForce: 30
+  elevateForce: 1
   tolerance: 0.01
   smoothing: 0.1
 --- !u!114 &448002515654636372
@@ -607,6 +607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7227989452955378404}
   - component: {fileID: 7974071511200901229}
+  - component: {fileID: 2426589809043333891}
   m_Layer: 0
   m_Name: Root tank
   m_TagString: Untagged
@@ -652,6 +653,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!65 &2426589809043333891
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227989452955287236}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2452922, y: 2.5899396, z: 5.468362}
+  m_Center: {x: 0.023478746, y: 0.7949698, z: -0.25848866}
 --- !u!1 &7227989452955287248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,8 +1098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a81ff4b69ee626408516d3f6b2fce60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHoverForce: 10
-  targetHeight: 1
+  maxHoverForce: 40
+  targetHeight: 1.5
   thrusterEffect: {fileID: 8283493275260631718}
 --- !u!1 &7227989452955287256
 GameObject:

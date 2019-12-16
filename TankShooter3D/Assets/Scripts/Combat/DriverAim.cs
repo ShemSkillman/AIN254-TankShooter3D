@@ -75,8 +75,6 @@ namespace TankShooter.Combat
 
             bool isHit = Physics.Raycast(ray, out RaycastHit hit, maxAimRange, layerMask);
 
-            Debug.DrawRay(ray.origin, ray.direction * 100f);
-
             if (!isHit) hit.point = ray.origin + ray.direction * maxAimRange;
 
             Vector3 location = hit.point;
