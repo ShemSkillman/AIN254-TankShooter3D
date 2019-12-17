@@ -19,6 +19,8 @@ namespace TankShooter.Control
         GunShoot gunShoot;
 
         Transform target;
+        Rigidbody targetRb;
+        Health targetHealth;
         LayerMask targetMask;
 
         float timeSinceTargetInSight = 0f;
@@ -33,7 +35,7 @@ namespace TankShooter.Control
             gunShoot = GetComponentInChildren<GunShoot>();
             driver = GetComponent<AIDriverController>();
 
-            targetMask = LayerMask.GetMask("Player");
+            targetMask = LayerMask.GetMask("Player detection");
             stoppingDistance = UnityEngine.Random.Range(minStoppingDistance, shootRange);
 
             StartCoroutine(ScanForTargets());
@@ -77,10 +79,12 @@ namespace TankShooter.Control
 
                 foreach(Collider targetCollider in targetColliders) // Enemy tank targets biggest part of player tank, the body
                 {
-                    TankMove mainTankBody = targetCollider.GetComponentInParent<TankMove>();
-                    if (mainTankBody == null) continue;
+                    Health enemy = targetCollider.GetComponentInParent<Health>();
+                    if (enemy.GetIsDead()) continue;
 
                     target = targetCollider.transform;
+                    targetRb = target.GetComponentInParent<Rigidbody>();
+                    targetHealth = target.GetComponentInParent<Health>();
                     break;
                 }
             }            
@@ -90,9 +94,7 @@ namespace TankShooter.Control
         {
             if (target == null) return;
 
-            Rigidbody targetRb = target.GetComponentInParent<Rigidbody>();
-            
-            Vector3 aimPos = GetAim(targetRb.position, targetRb.velocity, gunShoot.SelectedProjectile, 0);
+            Vector3 aimPos = GetAim(targetHealth.GetTankPosition(), targetRb.velocity, gunShoot.SelectedProjectile, 0);
 
             ControlTurret(aimPos);
             ControlGun(aimPos);

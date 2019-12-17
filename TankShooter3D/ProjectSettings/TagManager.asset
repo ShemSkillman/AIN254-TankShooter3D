@@ -16,8 +16,8 @@ TagManager:
   - 
   - Player
   - Projectile
-  - Enemy
-  - 
+  - Enemy detection
+  - Player detection
   - 
   - Terrain
   - 

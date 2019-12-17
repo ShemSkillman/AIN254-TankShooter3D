@@ -63,6 +63,11 @@ namespace TankShooter.Core
         {
             Destroy(gameObject);
         }
+
+        public bool GetIsDead()
+        {
+            return isDead;
+        }
     }
 }
 

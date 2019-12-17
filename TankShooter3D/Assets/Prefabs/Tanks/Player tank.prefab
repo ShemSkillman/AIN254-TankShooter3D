@@ -450,6 +450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTargetDistance: 100
+  gunnerCam: {fileID: 0}
+  targetMarkerPrefab: {fileID: 0}
 --- !u!1 &8815004295134010796
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,7 +622,7 @@ PrefabInstance:
     - target: {fileID: 7227989452955378428, guid: ee292169525301b4389351afd94d6389,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7974071511200901229, guid: ee292169525301b4389351afd94d6389,
         type: 3}
@@ -911,6 +913,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 684567142945790800, guid: ee292169525301b4389351afd94d6389,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee292169525301b4389351afd94d6389, type: 3}
