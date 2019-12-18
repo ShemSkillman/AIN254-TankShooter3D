@@ -32,7 +32,7 @@ namespace TankShooter.Core
         {
             if (isDead) return;
 
-            hitpoints -= damage;
+            hitpoints = Mathf.Max(hitpoints - damage, 0);
             onHitpointsChange?.Invoke(hitpoints);
 
             if (hitpoints < 1)
@@ -62,6 +62,12 @@ namespace TankShooter.Core
         private void DestroyTank()
         {
             Destroy(gameObject);
+        }
+
+        public int GetHitpointsPercentage()
+        {
+            float percentage = (hitpoints / (float)maxHitpoints) * 100f;
+            return Mathf.RoundToInt(percentage);
         }
 
         public bool GetIsDead()

@@ -299,6 +299,7 @@ MonoBehaviour:
   gunnerCam: {fileID: 16361240}
   targetMarkerPrefab: {fileID: 4541415451721881106, guid: 95da93c6038785143b00ad0701fc5438,
     type: 3}
+  gunEnd: {fileID: 990618849}
 --- !u!1001 &78808715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1418,6 +1419,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8b5ddb24d52978478227da848a08913, type: 3}
+--- !u!4 &990618849 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 570613923842146307, guid: 40d989119bd9d364eb00aa9ac3939ead,
+    type: 3}
+  m_PrefabInstance: {fileID: 9018808034708803679}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1004354008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,7 +1595,7 @@ PrefabInstance:
     - target: {fileID: 7039095447639697351, guid: c8b5ddb24d52978478227da848a08913,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70.5
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7039095447639697351, guid: c8b5ddb24d52978478227da848a08913,
         type: 3}
@@ -1598,7 +1605,7 @@ PrefabInstance:
     - target: {fileID: 7039095447639697351, guid: c8b5ddb24d52978478227da848a08913,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 63.7
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 7039095447639697351, guid: c8b5ddb24d52978478227da848a08913,
         type: 3}
@@ -1648,7 +1655,7 @@ PrefabInstance:
     - target: {fileID: 2200338285100992356, guid: c8b5ddb24d52978478227da848a08913,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -1.3443375
+      value: -1.3443379
       objectReference: {fileID: 0}
     - target: {fileID: 2200338285100992356, guid: c8b5ddb24d52978478227da848a08913,
         type: 3}
@@ -2737,6 +2744,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
+    - target: {fileID: 1855224152548798758, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: tolerance
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2455308003358983352, guid: 40d989119bd9d364eb00aa9ac3939ead,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2831,6 +2843,46 @@ PrefabInstance:
         type: 3}
       propertyPath: moveForce
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744740014932061124, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502388132048143915, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502388132048143915, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8788562
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502388132048143915, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502388132048143915, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.47708687
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502388132048143915, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.18385063
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502388132048143915, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.39127928
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502388132048143915, guid: 40d989119bd9d364eb00aa9ac3939ead,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -123.009
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3668162853011458406, guid: 40d989119bd9d364eb00aa9ac3939ead, type: 3}

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TankShooter.Movement;
 using TankShooter.Combat;
+using TankShooter.UI;
 
 namespace TankShooter.Control
 {
@@ -20,6 +21,7 @@ namespace TankShooter.Control
         GunElevate gunElevate;
         TurretRotate turretRotate;
         GunShoot gunShoot;
+        TargetSystem targetSystem;
 
         bool isDead = false;
 
@@ -28,6 +30,7 @@ namespace TankShooter.Control
             gunElevate = mainWeapon.GetComponentInChildren<GunElevate>();
             turretRotate = mainWeapon.GetComponentInChildren<TurretRotate>();
             gunShoot = mainWeapon.GetComponentInChildren<GunShoot>();
+            targetSystem = GetComponentInChildren<TargetSystem>();
 
             fovChange = (maxFov - minFov) / zoomIncrements;
         }
@@ -71,6 +74,13 @@ namespace TankShooter.Control
             if (isDead) return;
 
             if (isInput) gunShoot.ShootGun();
+        }
+
+        public void LockTarget(bool isInput)
+        {
+            if (isDead) return;
+
+            if (isInput) targetSystem.LockTarget();
         }
 
         public void Die()

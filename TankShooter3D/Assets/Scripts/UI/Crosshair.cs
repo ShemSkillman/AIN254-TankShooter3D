@@ -3,7 +3,7 @@ using TankShooter.Combat;
 using UnityEngine.UI;
 using TankShooter.Core;
 using TMPro;
-using System;
+using TankShooter.Movement;
 using System.Collections;
 
 namespace TankShooter.UI
@@ -17,13 +17,15 @@ namespace TankShooter.UI
         [SerializeField] RectTransform crossHair;
         [SerializeField] TextMeshProUGUI reloadText;
         [SerializeField] TextMeshProUGUI ammoCountText;
-        [SerializeField] TextMeshProUGUI targetDistanceText;
+        [SerializeField] TextMeshProUGUI targetInfoText;
         [SerializeField] TextMeshProUGUI healthPercentageText;
         [SerializeField] Image aimingCircle;
 
         // Cache reference
         GunShoot playerGun;
         Health playerHealth;
+        Health target;
+        TankMove targetMove;
 
         private void Awake()
         {
@@ -43,27 +45,22 @@ namespace TankShooter.UI
                 UpdateAimingCircle(timeUntilReload, reloadTime);
                 UpdateAmmoCountText();
                 UpdateHealthPercentageText();
-                UpdateTargetDistanceText();
+                UpdateTargetInformation();
 
                 yield return new WaitForSeconds(1 / UIRefreshRatePerSecond);
             }
             
         }
 
-        private void UpdateTargetDistanceText()
-        {
-            targetDistanceText.text = string.Format("{0:0.0}m", playerGun.GetTargetDistance(maxTargetDistance));
-        }
-
         private void UpdateHealthPercentageText()
         {
             float healthPerc = (playerHealth.Hitpoints / (float)playerHealth.MaxHitpoints) * 100;
-            healthPercentageText.text = Mathf.RoundToInt(healthPerc) + "%";
+            healthPercentageText.text = "HP: " + Mathf.RoundToInt(healthPerc) + "%";
         }
 
         private void UpdateAmmoCountText()
         {
-            ammoCountText.text = playerGun.GetCurrentAmmo() + "/" + playerGun.GetMaxAmmoCapacity();
+            ammoCountText.text = "Ammo: " + playerGun.GetCurrentAmmo() + "/" + playerGun.GetMaxAmmoCapacity();
         }
 
         private void UpdateReloadText(float timeUntilReload, float reloadTime)
@@ -92,6 +89,26 @@ namespace TankShooter.UI
 
             aimingCircle.fillAmount = reloadPercentage;
             aimingCircle.color = Color.red;
+        }
+
+        private void UpdateTargetInformation()
+        {
+            if (target == null)
+            {
+                targetInfoText.text = "N/A";
+                return;
+            }
+
+            targetInfoText.text = string.Format("Distance: {0:0.0}m\nHealth: {1}%\nSpeed: {2:0} km/h", 
+                playerGun.GetTargetDistance(target), target.GetHitpointsPercentage(), targetMove.GetTankSpeedKmpH());
+        }
+
+        public void SetTarget(Health target)
+        {
+            this.target = target;
+
+            if (target != null) targetMove = target.GetComponentInChildren<TankMove>();
+            else targetMove = null;
         }
     }
 }

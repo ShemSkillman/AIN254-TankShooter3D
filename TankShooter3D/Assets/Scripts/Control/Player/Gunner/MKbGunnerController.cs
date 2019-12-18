@@ -21,6 +21,7 @@ namespace TankShooter.Control
         {
             gunnerController.CameraZoom(Input.GetAxisRaw("Mouse ScrollWheel"));
             gunnerController.FireGun(Input.GetButton("Fire1"));
+            gunnerController.LockTarget(Input.GetKeyDown(KeyCode.T));
         }
     }
 }

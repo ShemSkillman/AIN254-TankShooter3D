@@ -112,10 +112,9 @@ namespace TankShooter.Combat
             return maxAmmoCapacity;
         }
 
-        public float GetTargetDistance(float maxDistance)
+        public float GetTargetDistance(Health target)
         {
-            Physics.Raycast(gunEnd.position, transform.forward, out RaycastHit ray, maxDistance);
-            return ray.distance;
+            return Vector3.Distance(gunEnd.position, target.GetTankPosition());
         }
 
         public Vector3 GetShootLocation(float maxDistance)
