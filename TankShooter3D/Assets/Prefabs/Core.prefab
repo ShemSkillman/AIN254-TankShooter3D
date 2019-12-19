@@ -1413,21 +1413,6 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: -1.344338
       objectReference: {fileID: 0}
-    - target: {fileID: 6839536893860095139, guid: 0c4a815230b02464ca83965d167fb331,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.000000014901161
-      objectReference: {fileID: 0}
-    - target: {fileID: 6839536893860095139, guid: 0c4a815230b02464ca83965d167fb331,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 6839536893860095139, guid: 0c4a815230b02464ca83965d167fb331,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.z
-      value: 0.10000007
-      objectReference: {fileID: 0}
     - target: {fileID: 6704575156449909743, guid: 0c4a815230b02464ca83965d167fb331,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -1442,6 +1427,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 0.10000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839536893860095139, guid: 0c4a815230b02464ca83965d167fb331,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839536893860095139, guid: 0c4a815230b02464ca83965d167fb331,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839536893860095139, guid: 0c4a815230b02464ca83965d167fb331,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.10000007
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c4a815230b02464ca83965d167fb331, type: 3}
@@ -1591,6 +1591,16 @@ PrefabInstance:
       propertyPath: followObject
       value: 
       objectReference: {fileID: 5867049552806246746}
+    - target: {fileID: 8783934666100655165, guid: 2fa3e1828cbab4c49b370984e9ad1469,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783934666100655165, guid: 2fa3e1828cbab4c49b370984e9ad1469,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8107111489976711959, guid: 2fa3e1828cbab4c49b370984e9ad1469,
         type: 3}
       propertyPath: tank
