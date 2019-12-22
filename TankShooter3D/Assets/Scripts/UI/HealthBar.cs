@@ -1,7 +1,8 @@
-﻿using TankShooter.Core;
+﻿using TankShooter.Combat;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using TankShooter.Core;
 
 public class HealthBar : MonoBehaviour
 {
@@ -9,28 +10,28 @@ public class HealthBar : MonoBehaviour
     [SerializeField] Image fillArea;
 
     int initialHP;
-    GameObject player;
     Slider healthBar;
+    Health player;
 
     private void Awake()
     {
-        player = GameObject.FindWithTag("Player");
         healthBar = GetComponent<Slider>();
+        player = GetComponentInParent<GameSession>().Player;
     }
 
     private void Start()
     {
-        initialHP = player.GetComponent<Health>().Hitpoints;
+        initialHP = player.Hitpoints;
     }
 
     private void OnEnable()
     {
-        player.GetComponent<Health>().onHitpointsChange += UpdateHealth;
+        player.onHitpointsChange += UpdateHealth;
     }
 
     private void OnDisable()
     {
-        player.GetComponent<Health>().onHitpointsChange -= UpdateHealth;
+        player.onHitpointsChange -= UpdateHealth;
     }
 
     public void UpdateHealth(int health)

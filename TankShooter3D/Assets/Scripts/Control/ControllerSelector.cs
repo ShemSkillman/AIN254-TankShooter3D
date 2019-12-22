@@ -1,22 +1,43 @@
 ﻿using UnityEngine;
 using TMPro;
+using System;
 
 namespace TankShooter.Control
 {
     public class ControllerSelector : MonoBehaviour
     {
-        [SerializeField] TextMeshProUGUI gunnerInputButton;
-        [SerializeField] TextMeshProUGUI driverInputButton;
+        [SerializeField] Canvas multiplayerCanvas;
+        [SerializeField] Canvas singleplayerCanvas;
+        [SerializeField] TextMeshProUGUI gunnerControllerButton;
+        [SerializeField] TextMeshProUGUI driverControllerButton;
+        [SerializeField] TextMeshProUGUI masterControllerButton;
 
         bool driverHasGamepad = false;
 
         private void Start()
         {
-            GetDefaults();
+            GetGameModeDefaults();
+            GetMultiplayerControllerDefaults();
             SetButtonText();
         }
 
-        private void GetDefaults()
+        private void GetGameModeDefaults()
+        {
+            if (!PlayerPrefs.HasKey("GameMode")) return;
+
+            if (PlayerPrefs.GetString("GameMode") == "Singleplayer")
+            {
+                multiplayerCanvas.gameObject.SetActive(false);
+                singleplayerCanvas.gameObject.SetActive(true);
+            }
+            else if (PlayerPrefs.GetString("GameMode") == "Multiplayer")
+            {
+                singleplayerCanvas.gameObject.SetActive(false);
+                multiplayerCanvas.gameObject.SetActive(true);
+            }
+        }
+
+        private void GetMultiplayerControllerDefaults()
         {
             if (!PlayerPrefs.HasKey("DriverInput")) return;
 
@@ -34,15 +55,15 @@ namespace TankShooter.Control
         {
             if (driverHasGamepad)
             {
-                driverInputButton.text = "Gamepad";
-                gunnerInputButton.text = "Mouse and Keyboard";
+                driverControllerButton.text = "Gamepad";
+                gunnerControllerButton.text = "Mouse and Keyboard";
 
                 PlayerPrefs.SetString("DriverInput", "Gamepad");
             }
             else
             {
-                driverInputButton.text = "Mouse and Keyboard";
-                gunnerInputButton.text = "Gamepad";
+                driverControllerButton.text = "Mouse and Keyboard";
+                gunnerControllerButton.text = "Gamepad";
 
                 PlayerPrefs.SetString("DriverInput", "Mouse and Keyboard");
             }
@@ -52,6 +73,16 @@ namespace TankShooter.Control
         {
             driverHasGamepad = !driverHasGamepad;
             SetButtonText();
+        }
+
+        public void SetMultiplayer()
+        {
+            PlayerPrefs.SetString("GameMode", "Multiplayer");
+        }
+
+        public void SetSingleplayer()
+        {
+            PlayerPrefs.SetString("GameMode", "Singleplayer");
         }
 
         

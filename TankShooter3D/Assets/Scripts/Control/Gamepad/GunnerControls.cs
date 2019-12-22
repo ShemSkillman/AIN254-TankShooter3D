@@ -49,6 +49,14 @@ public class GunnerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""TargetLock"",
+                    ""type"": ""Button"",
+                    ""id"": ""cdb30e4c-1bfc-4b76-8d2e-7ffd2eb98683"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -95,6 +103,17 @@ public class GunnerControls : IInputActionCollection, IDisposable
                     ""action"": ""ZoomOut"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75deeefa-8212-4830-9e17-1b5e02ee9745"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TargetLock"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -107,6 +126,7 @@ public class GunnerControls : IInputActionCollection, IDisposable
         m_Gameplay_ZoomIn = m_Gameplay.FindAction("ZoomIn", throwIfNotFound: true);
         m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
         m_Gameplay_ZoomOut = m_Gameplay.FindAction("ZoomOut", throwIfNotFound: true);
+        m_Gameplay_TargetLock = m_Gameplay.FindAction("TargetLock", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -160,6 +180,7 @@ public class GunnerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_ZoomIn;
     private readonly InputAction m_Gameplay_Aim;
     private readonly InputAction m_Gameplay_ZoomOut;
+    private readonly InputAction m_Gameplay_TargetLock;
     public struct GameplayActions
     {
         private GunnerControls m_Wrapper;
@@ -168,6 +189,7 @@ public class GunnerControls : IInputActionCollection, IDisposable
         public InputAction @ZoomIn => m_Wrapper.m_Gameplay_ZoomIn;
         public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
         public InputAction @ZoomOut => m_Wrapper.m_Gameplay_ZoomOut;
+        public InputAction @TargetLock => m_Wrapper.m_Gameplay_TargetLock;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -189,6 +211,9 @@ public class GunnerControls : IInputActionCollection, IDisposable
                 ZoomOut.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoomOut;
                 ZoomOut.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoomOut;
                 ZoomOut.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoomOut;
+                TargetLock.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTargetLock;
+                TargetLock.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTargetLock;
+                TargetLock.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTargetLock;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -205,6 +230,9 @@ public class GunnerControls : IInputActionCollection, IDisposable
                 ZoomOut.started += instance.OnZoomOut;
                 ZoomOut.performed += instance.OnZoomOut;
                 ZoomOut.canceled += instance.OnZoomOut;
+                TargetLock.started += instance.OnTargetLock;
+                TargetLock.performed += instance.OnTargetLock;
+                TargetLock.canceled += instance.OnTargetLock;
             }
         }
     }
@@ -215,5 +243,6 @@ public class GunnerControls : IInputActionCollection, IDisposable
         void OnZoomIn(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnZoomOut(InputAction.CallbackContext context);
+        void OnTargetLock(InputAction.CallbackContext context);
     }
 }

@@ -35,14 +35,14 @@ namespace TankShooter.Control
 
         public void MoveReticle(Vector2 movement)
         {
-            if (isDead) return;
+            if (isDead || driverAim == null) return;
 
             driverAim.MoveReticle(movement);
         }
 
         public void ShootTurrets(float input)
         {
-            if (isDead) return;
+            if (isDead || driverAim == null) return;
 
             driverAim.ShootTurrets(input);
         }

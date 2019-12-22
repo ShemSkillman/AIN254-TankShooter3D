@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using TankShooter.Core;
 using UnityEngine.UI;
-using TankShooter.Movement;
+using TankShooter.Combat;
 
 namespace TankShooter.UI
 {
@@ -11,6 +10,9 @@ namespace TankShooter.UI
         [SerializeField] Camera gunnerCam;
         [SerializeField] Image targetMarkerPrefab;
         [SerializeField] Transform gunEnd;
+
+        public delegate void OnTargetLock(bool isTargetLocked);
+        public event OnTargetLock onTargetLocked;
 
         LayerMask enemyMask;
         RectTransform canvasRect;
@@ -98,6 +100,8 @@ namespace TankShooter.UI
             {
                 lockedTarget = null;
                 if (lockedTargetMarker != null) Destroy(lockedTargetMarker.gameObject);
+
+                onTargetLocked(false);
             }
             else
             {
@@ -109,6 +113,8 @@ namespace TankShooter.UI
                     lockedTargetMarker.gameObject.SetActive(false);
                     lockedTargetMarker.color = Color.green;
                 }
+
+                onTargetLocked(true);
             }
         }
     }

@@ -22,16 +22,15 @@ namespace TankShooter.UI
         [SerializeField] Image aimingCircle;
 
         // Cache reference
+        Health player;
         GunShoot playerGun;
-        Health playerHealth;
         Health target;
         TankMove targetMove;
 
         private void Awake()
         {
-            GameObject player = GameObject.FindWithTag("Player");
+            player = GetComponentInParent<GameSession>().Player;
             playerGun = player.GetComponentInChildren<GunShoot>();
-            playerHealth = player.GetComponent<Health>();
         }
 
         IEnumerator Start()
@@ -54,7 +53,7 @@ namespace TankShooter.UI
 
         private void UpdateHealthPercentageText()
         {
-            float healthPerc = (playerHealth.Hitpoints / (float)playerHealth.MaxHitpoints) * 100;
+            float healthPerc = (player.Hitpoints / (float)player.MaxHitpoints) * 100;
             healthPercentageText.text = "HP: " + Mathf.RoundToInt(healthPerc) + "%";
         }
 

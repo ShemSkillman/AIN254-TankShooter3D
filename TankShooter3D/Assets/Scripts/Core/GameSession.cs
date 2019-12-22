@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
+using TankShooter.Combat;
 
 namespace TankShooter.Core
 {
     public class GameSession : MonoBehaviour
     {
         [SerializeField] int pointsPerKill = 15;
+        [SerializeField] Health player;
 
         public int Kills { get { return kills; } }
         public int TotalScore { get { return totalScore; } }
         public string Time { get { return time; } }
+        public Health Player { get { return player; } }
 
         int kills = 0;
         int totalScore = 0;

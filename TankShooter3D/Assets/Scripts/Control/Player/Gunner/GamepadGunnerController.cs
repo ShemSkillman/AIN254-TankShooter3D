@@ -21,6 +21,8 @@ namespace TankShooter.Control
             gamepadControl.Gameplay.ZoomIn.performed += ctx => gunnerController.CameraZoom(-ctx.ReadValue<float>());
 
             gamepadControl.Gameplay.Shoot.performed += ctx => gunnerController.FireGun(ctx.ReadValue<float>() != 0);
+
+            gamepadControl.Gameplay.TargetLock.performed += ctx => gunnerController.LockTarget(ctx.ReadValue<float>() != 0);
         }
 
         private void OnEnable()

@@ -1,22 +1,32 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using TankShooter.Core;
+using TankShooter.Movement;
 
 namespace TankShooter.UI
 {
     public class TankDiagram : MonoBehaviour
     {
         [SerializeField] RectTransform radarTank;
-        [SerializeField] Transform tank;
-
         [SerializeField] RectTransform radarTurret;
-        [SerializeField] Transform turret;
+
+        Transform player;
+        Transform tankBodyTransform;
+        Transform tankTurretTransform;
+
+        private void Awake()
+        {
+            player = GetComponentInParent<GameSession>().Player.transform;
+
+            tankBodyTransform = player.GetComponentInChildren<TankMove>().transform;
+            tankTurretTransform = player.GetComponentInChildren<TurretRotate>().transform;
+        }
 
         private void Update()
         {
-            if (tank == null) return;
+            if (player == null) return;
 
-            radarTank.rotation = new Quaternion(radarTank.rotation.x, radarTank.rotation.y, -tank.rotation.y, tank.rotation.w);
-            radarTurret.rotation = new Quaternion(radarTurret.rotation.x, radarTurret.rotation.y, -turret.rotation.y, turret.rotation.w);            
+            radarTank.eulerAngles = new Vector3(0f, 0f, -tankBodyTransform.eulerAngles.y);
+            radarTurret.eulerAngles = new Vector3(0f, 0f, -tankTurretTransform.eulerAngles.y);
         }
     }
 }

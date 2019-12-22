@@ -12,15 +12,13 @@ namespace TankShooter.UI
         [SerializeField] TextMeshProUGUI timeText;
         [SerializeField] TextMeshProUGUI speedText;
 
-        GameSession gameSession;
-        GameObject playerTank;
         TankMove playerMove;
+        GameSession gameSession;
 
         private void Awake()
         {
             gameSession = FindObjectOfType<GameSession>();
-            playerTank = GameObject.FindWithTag("Player");
-            playerMove = playerTank.GetComponentInChildren<TankMove>();
+            playerMove = gameSession.Player.GetComponentInChildren<TankMove>();
         }
 
         private void OnEnable()

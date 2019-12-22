@@ -1,8 +1,8 @@
-﻿using TankShooter.Movement;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
+using TankShooter.Core;
 
-namespace TankShooter.Core
+namespace TankShooter.Combat
 {
     public class Health : MonoBehaviour
     {
