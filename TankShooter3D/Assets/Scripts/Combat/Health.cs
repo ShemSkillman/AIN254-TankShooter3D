@@ -12,6 +12,8 @@ namespace TankShooter.Combat
         [SerializeField] TankExplosion explosionPrefab;
         [SerializeField] Transform tankBody;
 
+        EnemySpawner spawner;
+
         int maxHitpoints;
         Rigidbody[] tankParts;
         bool isDead = false;
@@ -46,6 +48,7 @@ namespace TankShooter.Combat
         {
             isDead = true;
 
+            if (spawner != null) spawner.EnemyDestroyed();
             if (tag == "Enemy") FindObjectOfType<GameSession>().EnemyDestroyed();
             
             BroadcastMessage("Die");
@@ -73,6 +76,11 @@ namespace TankShooter.Combat
         public bool GetIsDead()
         {
             return isDead;
+        }
+
+        public void SetSpawner(EnemySpawner spawner)
+        {
+            this.spawner = spawner;
         }
     }
 }

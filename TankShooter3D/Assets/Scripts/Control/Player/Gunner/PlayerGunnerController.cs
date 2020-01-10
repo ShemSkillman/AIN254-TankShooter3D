@@ -93,7 +93,7 @@ namespace TankShooter.Control
 
         public void MoveOrbitalCamera(Vector2 input)
         {
-            if (!isThirdPerson)
+            if (isThirdPerson)
             {
                 freeLook.m_YAxis.m_InputAxisName = "Mouse Y";
                 freeLook.m_XAxis.m_InputAxisName = "Mouse X";
@@ -105,9 +105,6 @@ namespace TankShooter.Control
 
             freeLook.m_XAxis.m_InputAxisValue = input.x;
             freeLook.m_YAxis.m_InputAxisValue = input.y;
-
-            print(freeLook.m_XAxis.m_InputAxisValue);
-            print(freeLook.m_YAxis.m_InputAxisValue);
         }
 
         public void CameraZoom(float input)

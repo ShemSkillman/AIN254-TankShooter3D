@@ -41,7 +41,7 @@ namespace TankShooter.Control
                 if (traversePath != null || isStationary) continue;
 
                 NavMeshPath newPath = new NavMeshPath();
-                Vector3 pos = new Vector3(moveTransform.position.x, 0, moveTransform.position.z);
+                Vector3 pos = new Vector3(moveTransform.position.x, moveTransform.position.y, moveTransform.position.z);
                 NavMesh.CalculatePath(pos, GetDestination(), NavMesh.AllAreas, newPath);
 
                 if (newPath.status == NavMeshPathStatus.PathInvalid) continue;
