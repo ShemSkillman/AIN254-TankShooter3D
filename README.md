@@ -1,11 +1,49 @@
 # AIN254-TankShooter3D
  AINT254 game project
 
-Trello page:
-https://trello.com/b/jcblHeEy/aint254-coop-tank-shooter
+REFERENCES
 
-Mouse and keyboard icon:
-https://www.iconfinder.com/icons/3875744/computer_hardware_computer_mouse_input_device_keyboard_typing_icon
+RPG/FPS Game Assets for PC/Mobile (Industrial Set v2.0)
+https://assetstore.unity.com/packages/3d/environments/industrial/rpg-fps-game-assets-for-pc-mobile-industrial-set-v2-0-86679
 
-Game controller icon:
-https://thenounproject.com/term/xbox-controller/96499/
+Abandoned buildings
+https://assetstore.unity.com/packages/3d/environments/abandoned-buildings-62875
+
+Terrain Textures Pack Free
+https://assetstore.unity.com/packages/2d/textures-materials/terrain-textures-pack-free-139542
+
+Mtree - Tree Creation
+https://assetstore.unity.com/packages/tools/modeling/mtree-tree-creation-132433
+
+Futuristic Gun SoundFX
+https://assetstore.unity.com/packages/audio/sound-fx/weapons/futuristic-gun-soundfx-100851
+
+Ammo Crate Wood Ammunition Box
+https://assetstore.unity.com/packages/3d/props/weapons/ammo-crate-wood-ammunition-box-90071
+
+Unique Projectiles Volume 1
+https://assetstore.unity.com/packages/vfx/particles/unique-projectiles-volume-1-124214
+
+Hover Tank Z-16B
+https://assetstore.unity.com/packages/3d/hover-tank-z-16b-63118
+
+Explosion sound effects
+https://www.youtube.com/watch?v=f0gB369NYFA
+
+Unity Input System
+(imported using packet manager in Unity from Unity)
+
+MUSIC
+https://www.youtube.com/watch?v=648eUqMih50&list=PL9ee09QL9RYoN5I1jBq31nViX6BOBp4cn&index=1
+https://www.youtube.com/watch?v=jDgPS-LA-3E&list=PL9ee09QL9RYoN5I1jBq31nViX6BOBp4cn&index=2
+https://www.youtube.com/watch?v=brvV4L2mTaY&list=PL9ee09QL9RYoN5I1jBq31nViX6BOBp4cn&index=3
+https://www.youtube.com/watch?v=jD7Y8kSDZNo&list=PL9ee09QL9RYoN5I1jBq31nViX6BOBp4cn&index=4
+https://www.youtube.com/watch?v=azLLXwUYgjU&list=PL9ee09QL9RYoN5I1jBq31nViX6BOBp4cn&index=5
+https://www.youtube.com/watch?v=PjYBnlPUXgs&list=PL9ee09QL9RYoN5I1jBq31nViX6BOBp4cn&index=6
+https://www.youtube.com/watch?v=WKBbJZEMZ1A&list=PL9ee09QL9RYoN5I1jBq31nViX6BOBp4cn&index=7
+https://www.youtube.com/watch?v=eZC9Lm_e554&list=PL9ee09QL9RYoN5I1jBq31nViX6BOBp4cn&index=8
+https://www.youtube.com/watch?v=4YGLOqnGz6E&list=PL9ee09QL9RYoN5I1jBq31nViX6BOBp4cn&index=9
+https://www.youtube.com/watch?v=dHXJLTNbwrs&list=PL9ee09QL9RYoN5I1jBq31nViX6BOBp4cn&index=10
+
+FONT
+https://www.dafont.com/kimberley.font
